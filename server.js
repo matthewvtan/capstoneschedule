@@ -11,8 +11,6 @@ let Event = require('./event.model');
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/', express.static(path.join(__dirname, '/client/build')));
-
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/events', { useNewUrlParser: true });
 const connection = mongoose.connection;
@@ -88,9 +86,7 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
+app.listen(port, () => console.log(`Server is running on Port: ${port}`));
 
