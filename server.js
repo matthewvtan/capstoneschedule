@@ -21,7 +21,7 @@ connection.once('open', function() {
 eventRoutes.route('/').get(function(req, res) {
   Event.find(function(err, events) {
     if (err) {
-      console.log(err);
+      console.log("Test?" + err);
     } else {
       res.json(events);
     }
