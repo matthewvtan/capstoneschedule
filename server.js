@@ -81,14 +81,11 @@ eventRoutes.route('/update/:id').post(function(req, res) {
 
 app.use('/events', eventRoutes);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-    });
-}
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
+
