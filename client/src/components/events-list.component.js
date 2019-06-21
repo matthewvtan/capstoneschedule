@@ -37,7 +37,7 @@ export default class EventsList extends Component {
     }
     
     componentDidMount() {
-      axios.get('http://localhost:4000/events')
+      axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
           console.log({events: response.data})
@@ -48,7 +48,7 @@ export default class EventsList extends Component {
     }
     
     componentDidUpdate() {
-      axios.get('http://localhost:4000/events')
+      axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
         })

@@ -44,7 +44,7 @@ export default class CompleteOrder extends Component {
   }
   
   componentDidMount() {
-    axios.get('http://localhost:4000/events/'+this.props.match.params.id)
+    axios.get('/events/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           title: response.data.title,
@@ -178,7 +178,7 @@ export default class CompleteOrder extends Component {
       room: this.state.room,
       completed: this.state.completed
     };
-    axios.post('http://localhost:4000/events/update/'+this.props.match.params.id, obj)
+    axios.post('/events/update/'+this.props.match.params.id, obj)
       .then(res => console.log(res.data));
       
     this.props.history.push('/');
