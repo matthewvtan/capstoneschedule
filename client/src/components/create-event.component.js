@@ -112,7 +112,7 @@ export default class CreateEvent extends Component {
         completed: this.state.completed
         }      
       
-      axios.post('http://localhost:4000/events/add', newEvent)
+      axios.post('/events/add', newEvent)
         .then(res => console.log(res.data));
       
       this.setState({
