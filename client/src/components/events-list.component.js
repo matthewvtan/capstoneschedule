@@ -10,10 +10,10 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.phone}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.address}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.job_address}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start, "MM/DD/YYYY hh:mm a").format("MM/DD/YYYY hh:mm a")}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.end, "MM/DD/YYYY hh:mm a").format("MM/DD/YYYY hh:mm a")}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired, "MM/DD/YYYY").format("MM/DD/YYYY")}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.performed_by}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.repairs_performed}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.labor}</td>
