@@ -67,7 +67,7 @@ export default class EventsList extends Component {
         return (
             <div>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <table className="table table-responsive table-bordered" style={{ marginTop: 20}}>
+                <table className="table-responsive table-bordered" style={{ marginTop: 20}}>
                   <thead>
                     <tr>
                       <th>Client Name</th>
