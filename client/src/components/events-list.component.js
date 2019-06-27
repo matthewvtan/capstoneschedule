@@ -36,7 +36,7 @@ export default class EventsList extends Component {
       this.state = {events: []};
     }
     
-    componentWillMount() {
+    componentDidMount() {
       axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
