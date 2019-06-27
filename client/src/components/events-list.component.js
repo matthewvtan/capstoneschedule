@@ -41,13 +41,18 @@ export default class EventsList extends Component {
         .then(response => {
           this.setState({events: response.data})
           console.log({events: response.data})
-          console.log("Component Will Mount")
+          console.log("Component Did Mount")
         })
         .catch(function (error) {
           console.log(error);
         })
     }
     
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log("Should component update", nextProps, nextState);
+      return false;
+    }
+
     componentDidUpdate() {
       axios.get('/events')
         .then(response => {
