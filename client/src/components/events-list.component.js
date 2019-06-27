@@ -41,6 +41,7 @@ export default class EventsList extends Component {
         .then(response => {
           this.setState({events: response.data})
           console.log({events: response.data})
+          console.log("Component Did Mount")
         })
         .catch(function (error) {
           console.log(error);
@@ -51,6 +52,7 @@ export default class EventsList extends Component {
       axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
+          console.log("Component Did Update")
         })
         .catch(function (error) {
           console.log(error);
