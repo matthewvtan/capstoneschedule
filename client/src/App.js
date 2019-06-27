@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import CreateEvent from "./components/create-event.component";
 import EditEvent from "./components/edit-event.component";
 import EventsList from "./components/events-list.component";

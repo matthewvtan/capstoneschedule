@@ -36,12 +36,12 @@ export default class EventsList extends Component {
       this.state = {events: []};
     }
     
-    componentDidMount() {
+    componentWillMount() {
       axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
           console.log({events: response.data})
-          console.log("Component Did Mount")
+          console.log("Component Will Mount")
         })
         .catch(function (error) {
           console.log(error);
