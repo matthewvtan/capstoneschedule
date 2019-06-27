@@ -34,15 +34,15 @@ componentDidMount() {
       })
   }
   
-  componentDidUpdate() {
-    axios.get('/events')
-      .then(response => {
-        this.setState({calendarEvents: response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
+  // componentDidUpdate() {
+  //   axios.get('/events')
+  //     .then(response => {
+  //       this.setState({calendarEvents: response.data})
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  // }
 
   // eventLinks() {
   //   return this.state.calendarEvents.map(function(currentEvent, i) {
