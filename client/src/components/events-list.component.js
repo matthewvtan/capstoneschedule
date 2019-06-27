@@ -48,21 +48,21 @@ export default class EventsList extends Component {
         })
     }
     
-    shouldComponentUpdate(nextProps, nextState) {
-      console.log("Should component update", nextProps, nextState);
-      return false;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //   console.log("Should component update", nextProps, nextState);
+    //   return false;
+    // }
 
-    componentDidUpdate() {
-      axios.get('/events')
-        .then(response => {
-          this.setState({events: response.data})
-          console.log("Component Did Update")
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
+    // componentDidUpdate() {
+    //   axios.get('/events')
+    //     .then(response => {
+    //       this.setState({events: response.data})
+    //       console.log("Component Did Update")
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     })
+    // }
     
     eventList() {
       return this.state.events.map(function(currentEvent, i) {
