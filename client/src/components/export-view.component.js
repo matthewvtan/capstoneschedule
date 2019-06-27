@@ -34,15 +34,15 @@ export default class ExportView extends Component {
         })
     }
     
-    componentDidUpdate() {
-      axios.get('/events')
-        .then(response => {
-          this.setState({events: response.data})
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
+    // componentDidUpdate() {
+    //   axios.get('/events')
+    //     .then(response => {
+    //       this.setState({events: response.data})
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     })
+    // }
     
     eventList() {
       return this.state.events.map(function(currentEvent, i) {
