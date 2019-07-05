@@ -247,11 +247,52 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Labor:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.labor}
-                    onChange={this.onChangeLabor}
-                    />
+                  <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="priorityOptions" 
+                                    id="laborT1" 
+                                    value="T1"
+                                    checked={this.state.labor==='T1'} 
+                                    onChange={this.onChangeLabor}
+                                    />
+                            <label className="form-check-label">T1</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="priorityOptions" 
+                                    id="laborT2" 
+                                    value="T2" 
+                                    checked={this.state.labor==='T2'} 
+                                    onChange={this.onChangeLabor}
+                                    />
+                            <label className="form-check-label">T2</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="laborOptions" 
+                                    id="laborT3" 
+                                    value="T3" 
+                                    checked={this.state.labor==='T3'} 
+                                    onChange={this.onChangeLabor}
+                                    />
+                            <label className="form-check-label">T3</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="laborOptions" 
+                                    id="laborT4" 
+                                    value="T4" 
+                                    checked={this.state.labor==='T4'} 
+                                    onChange={this.onChangeLabor}
+                                    />
+                            <label className="form-check-label">T4</label>
+                        </div>
+                    </div>
                 </div>
                 <div className="form-group">
                   <label>Hours:</label>
