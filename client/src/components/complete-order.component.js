@@ -8,7 +8,7 @@ export default class CompleteOrder extends Component {
     
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangePhone = this.onChangePhone.bind(this);
-    this.onChangeAddress = this.onChangeAddress.bind(this);
+    this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
     this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
     this.onChangeStart = this.onChangeStart.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
@@ -28,7 +28,7 @@ export default class CompleteOrder extends Component {
         title:'',
         phone:'',
         address: '',
-        job_address:'',
+        email_address:'',
         start:'',
         end: '',
         work_requested: '',
@@ -49,7 +49,7 @@ export default class CompleteOrder extends Component {
         this.setState({
           title: response.data.title,
           phone: response.data.phone,
-          address: response.data.address,
+          email_address: response.data.email_address,
           job_address: response.data.job_address,
           start: response.data.start,
           end: response.data.end,
@@ -81,9 +81,9 @@ export default class CompleteOrder extends Component {
     });
   }
 
-  onChangeAddress(e) {
+  onChangeEmailAddress(e) {
     this.setState({
-      address: e.target.value
+      email_address: e.target.value
     });
   }
 
@@ -164,7 +164,7 @@ export default class CompleteOrder extends Component {
     const obj = {
       title: this.state.title,
       phone: this.state.phone,
-      address: this.state.address,
+      email_address: this.state.email_address,
       job_address: this.state.job_address,
       start: this.state.start,
       end: this.state.end,
@@ -199,13 +199,13 @@ export default class CompleteOrder extends Component {
                     <p>{this.state.phone}</p>
                     </div>
                     <div className="form-group">
-                    <label>Address:</label>
-                    <p>{this.state.address}</p>
+                    <label>Email Address:</label>
+                    <p>{this.state.email_address}</p>
 
                     </div>
                     <div className="form-group">
                     <label>Job Address:</label>
-                    <p>{this.state.jobAddress}</p>
+                    <p>{this.state.job_address}</p>
 
                     </div>
                     <div className="form-group">

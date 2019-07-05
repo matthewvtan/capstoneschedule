@@ -13,7 +13,7 @@ export default class CreateEvent extends Component {
 
       this.onChangeTitle = this.onChangeTitle.bind(this);
       this.onChangePhone = this.onChangePhone.bind(this);
-      this.onChangeAddress = this.onChangeAddress.bind(this);
+      this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
       this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
       this.onChangeStart = this.onChangeStart.bind(this);
       this.onChangeEnd = this.onChangeEnd.bind(this);
@@ -24,7 +24,7 @@ export default class CreateEvent extends Component {
       this.state = {
         title:'',
         phone:'',
-        address: '',
+        email_address: '',
         job_address:'',
         start:'',
         end: '',
@@ -52,9 +52,9 @@ export default class CreateEvent extends Component {
       });
     }
     
-    onChangeAddress(e) {
+    onChangeEmailAddress(e) {
         this.setState({
-          address: e.target.value
+          email_address: e.target.value
         });
       }
 
@@ -88,7 +88,7 @@ export default class CreateEvent extends Component {
       console.log(`Form submitted:`);
       console.log(`Title: ${this.state.title}`);
       console.log(`Phone: ${this.state.phone}`);
-      console.log(`Address: ${this.state.address}`);
+      console.log(`Email Address: ${this.state.email_address}`);
       console.log(`Job Address: ${this.state.job_address}`);
       console.log(`Start: ${this.state.start}`);
       console.log(`End: ${this.state.end}`);
@@ -97,7 +97,7 @@ export default class CreateEvent extends Component {
       const newEvent = {
         title: this.state.title,
         phone: this.state.phone,
-        address: this.state.address,
+        email_address: this.state.email_address,
         job_address: this.state.job_address,
         start: this.state.start,
         end: this.state.end,
@@ -118,7 +118,7 @@ export default class CreateEvent extends Component {
       this.setState({
         title:'',
         phone: '',
-        address:'',
+        email_address:'',
         job_address:'',
         start:'',
         end:'',
@@ -152,8 +152,8 @@ export default class CreateEvent extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label>Address: </label>
-                    <input type="text" className="form-control" placeholder="Address" value={this.state.address} onChange={this.onChangeAddress}
+                    <label>Email Address: </label>
+                    <input type="text" className="form-control" placeholder="Email Address" value={this.state.email_address} onChange={this.onChangeEmailAddress}
                     />
                   </div>
 

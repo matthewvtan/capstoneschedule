@@ -8,7 +8,7 @@ let Event = new Schema({
     phone: {
         type: String
     },
-    address: {
+    email_address: {
         type: String
     },
     job_address: {
