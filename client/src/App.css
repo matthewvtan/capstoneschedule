@@ -20,7 +20,11 @@ p {
 .btn-gradient {
   margin: 5px;
 }
-a[class*="btn"] {text-decoration: none;}
+a[class*="btn"] {
+  text-decoration: none;
+  font-weight: 800;
+  color: white;
+}
 input[class*="btn"], 
 button[class*="btn"] {border: 0;}
 
