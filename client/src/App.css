@@ -8,11 +8,15 @@
   font-weight: 600;
 }
 
+a .btn-gradient {
+  color: #ffffff;
+}
+
 p {
   font-weight: 800;
 }
 
-.button-container {
+div .button-container {
   align-items: center;
 }
 
