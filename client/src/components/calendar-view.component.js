@@ -65,7 +65,7 @@ componentDidMount() {
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
             events={this.state.calendarEvents}
-            // eventClick={this.handleEventClick}
+            eventClick={function(calEvent, jsEvent, view, resourceObj) {alert(calEvent.title)}}
             nowIndicator='true'
             height='parent'
           />
@@ -75,6 +75,8 @@ componentDidMount() {
   }
 
   // handleEventClick = arg => {
-  //   console.log("Event ID: "+this.state.calendarEvents[1]._id);
+  //   dangerouslySetInnerHTML
+  //   alert("event id: "+this.state.eventId);
+  //   console.log("Event ID: "+this.state.calendarEvents);
   // }
 }
