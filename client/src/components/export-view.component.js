@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+ 
 import '../App.css';
 
 const Event = props => (
@@ -53,8 +55,15 @@ export default class ExportView extends Component {
     render() {
         return (
             <div>
+              <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="download-table-xls-button"
+                    table="table-to-xls"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Download as XLS"/>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <table className="table table-responsive table-bordered" style={{ marginTop: 20}}>
+                <table id="table-to-xls" className="table table-responsive table-bordered" style={{ marginTop: 20}}>
                   <thead>
                     <tr>
                       <th>Client Name</th>
