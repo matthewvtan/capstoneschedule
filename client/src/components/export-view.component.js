@@ -59,7 +59,7 @@ export default class ExportView extends Component {
                     id="test-table-xls-button"
                     className="download-table-xls-button"
                     table="table-to-xls"
-                    filename="tablexls"
+                    filename={"CapstoneCompletedOrders_"+moment().format("MM/DD/YYYY hh:mm a")}
                     sheet="tablexls"
                     buttonText="Download as XLS"/>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
