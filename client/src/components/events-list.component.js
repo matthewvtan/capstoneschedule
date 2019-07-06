@@ -9,7 +9,7 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.title}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.phone}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</td>
-    <td className={props.event.completed ? 'completed' : ''}><a href="https://www.google.com/maps/search/?api=1&amp;query="{props.event.job_address}>{props.event.job_address}</Link></td>
+    <td className={props.event.completed ? 'completed' : ''}><a href="https://www.google.com/maps/search/?api=1&amp;query="{{props.event.job_address}.replace(" ", "+")}>{props.event.job_address}</Link></td>
     <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</td>
