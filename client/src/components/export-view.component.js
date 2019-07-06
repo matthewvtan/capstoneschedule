@@ -58,12 +58,12 @@ export default class ExportView extends Component {
               <ReactHTMLTableToExcel
                     id="test-table-xls-button"
                     className="download-table-xls-button"
-                    table="table-to-xls"
-                    filename={"CapstoneCompletedOrders_"+moment().format("MM/DD/YYYY hh:mm a")}
-                    sheet="tablexls"
+                    table="completedOrders"
+                    filename={"COMPLETED_ORDERS_"+moment().format("MM/DD/YYYY hh:mm")}
+                    sheet="COMPLETED_ORDERS"
                     buttonText="Download as XLS"/>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <table id="table-to-xls" className="table table-responsive table-bordered" style={{ marginTop: 20}}>
+                <table id="completedOrders" className="table table-responsive table-bordered" style={{ marginTop: 20}}>
                   <thead>
                     <tr>
                       <th>Client Name</th>
