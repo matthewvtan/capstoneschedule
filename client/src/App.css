@@ -8,7 +8,7 @@
   font-weight: 600;
 }
 
-a .btn-gradient {
+div a.btn-gradient .nav-link {
   color: #ffffff;
 }
 
@@ -31,7 +31,7 @@ div .button-container {
 a[class*="btn"] {
   text-decoration: none;
   font-weight: 800;
-  color: white !important;
+  color: white;
 }
 input[class*="btn"], 
 button[class*="btn"] {border: 0;}
