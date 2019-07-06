@@ -12,6 +12,10 @@ p {
   font-weight: 800;
 }
 
+.button-container {
+  align-items: center;
+}
+
 .inactive {
   background-color: rgb(250,250,250);
   color: rgb(33,33,33);
@@ -23,7 +27,7 @@ p {
 a[class*="btn"] {
   text-decoration: none;
   font-weight: 800;
-  color: white;
+  color: white !important;
 }
 input[class*="btn"], 
 button[class*="btn"] {border: 0;}

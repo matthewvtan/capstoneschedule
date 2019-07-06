@@ -6,7 +6,7 @@ export default class Home extends Component {
     
     render() {
         return (
-            <div>
+            <div className="button-container">
                 <a href="#" class="btn-gradient blue block">
                     <Link to="/list" className="nav-link">List</Link>
                 </a>
