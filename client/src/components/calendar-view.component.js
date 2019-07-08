@@ -86,7 +86,7 @@ componentDidMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title
+            Event Title: {this.state.calendarEvents}
           </ModalHeader>
           <ModalBody>
             <div>
