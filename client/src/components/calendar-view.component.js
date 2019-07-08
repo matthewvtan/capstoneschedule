@@ -40,9 +40,9 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ event, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ event });
+    this.setState({ calendarEvent });
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -86,11 +86,11 @@ componentDidMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            {this.state.event.title}
+            {this.state.calendareEvent.title}
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.start.toISOString()}</p>
+              <p>{this.state.calendarEvent.start.toISOString()}</p>
             </div>
           </ModalBody>
           <ModalFooter>
