@@ -80,7 +80,7 @@ componentWillMount() {
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
             // events={this.state.calendarEvents}
-            eventSource="http://www.evening-hollows-87113.com/events"
+            eventSources="http://www.evening-hollows-87113.com/events"
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
