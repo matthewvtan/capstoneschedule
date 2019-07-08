@@ -25,10 +25,7 @@ export default class CalendarView extends React.Component {
     this.state = {
       modal: false,
       calendarWeekends: true,
-      event: {
-        title: "",
-        start: new Date()
-      }
+      calendarEvents: []
     };
   }
       
@@ -47,10 +44,10 @@ componentWillMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ event, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ event });
-    console.log(this.state.event.title);
+    this.setState({ calendarEvent });
+    console.log(this.state.calendarEvents.title);
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -82,8 +79,7 @@ componentWillMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            // events={this.state.calendarEvents}
-            events='http://www.evening-hollows-87113.com/events'
+            events={this.state.calendarEvents}
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
@@ -95,7 +91,7 @@ componentWillMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.event.title}
+            Event Title: {this.state.calendarEvents.title}
           </ModalHeader>
           <ModalBody>
             <div>
