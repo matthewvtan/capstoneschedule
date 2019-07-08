@@ -4,6 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from 'axios';
 import "../main.scss";
 
@@ -19,6 +20,7 @@ export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
 
   state = {
+    modal: false,
     calendarWeekends: true,
     calendarEvents: []
   };
@@ -33,7 +35,15 @@ componentDidMount() {
         console.log(error);
       })
   }
-  
+
+  toggle = () => {
+    this.setState({ modal: !this.state.modal });
+  };
+
+  handleEventClick = ({ event, el }) => {
+    this.toggle();
+    this.setState({ event });
+  };
   // componentDidUpdate() {
   //   axios.get('/events')
   //     .then(response => {
@@ -65,17 +75,37 @@ componentDidMount() {
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
             events={this.state.calendarEvents}
-            eventClick={function(calEvent, jsEvent, view, resourceObj) {alert(calEvent.title)}}
+            eventClick={this.handleEventClick}
             nowIndicator='true'
+            navLinks={true}
             height='parent'
           />
+          <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle}>
+            {this.state.event.title}
+          </ModalHeader>
+          <ModalBody>
+            <div>
+              <p>{this.state.event.start.toISOString()}</p>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary">Do Something</Button>{" "}
+            <Button color="secondary" onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
         </div>
       </div>
     );
   }
 
   // handleEventClick = arg => {
-  //   dangerouslySetInnerHTML
   //   alert("event id: "+this.state.eventId);
   //   console.log("Event ID: "+this.state.calendarEvents);
   // }
