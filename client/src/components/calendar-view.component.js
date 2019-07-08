@@ -86,11 +86,11 @@ componentDidMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            {this.state.calendarEvent.title}
+            Event Title
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.calendarEvent.start.toISOString()}</p>
+              <p>Date and Time</p>
             </div>
           </ModalBody>
           <ModalFooter>
