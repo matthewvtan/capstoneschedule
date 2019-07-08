@@ -25,10 +25,10 @@ export default class CalendarView extends React.Component {
     this.state = {
       modal: false,
       calendarWeekends: true,
-      event: [
+      event: {
         title: "",
         start: new Date()
-      ]
+      }
     };
   }
       
