@@ -22,13 +22,13 @@ const Event = props => (
     <TableCell className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</TableCell>
-    <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</TableCell>
+    {/* <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.performed_by}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.repairs_performed}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.labor}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.hours}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.materials}</TableCell>
-    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.room}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.room}</TableCell> */}
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</TableCell>
     <TableCell>
         <Link to={"/edit/"+props.event._id}>Edit</Link>
@@ -93,13 +93,13 @@ export default class EventsList extends Component {
                       <TableCell>Job Address</TableCell>
                       <TableCell>End Time</TableCell>
                       <TableCell>Work Requested</TableCell>
-                      <TableCell>Date Repaired</TableCell>
+                      {/* <TableCell>Date Repaired</TableCell>
                       <TableCell>Performed By</TableCell>
                       <TableCell>Repairs Performed</TableCell>
                       <TableCell>Labor</TableCell>
                       <TableCell>Hours</TableCell>
                       <TableCell>Materials</TableCell>
-                      <TableCell>Room</TableCell>
+                      <TableCell>Room</TableCell> */}
                       <TableCell>Status</TableCell>
                       <TableCell>Edit</TableCell>
                     </TableRow>
