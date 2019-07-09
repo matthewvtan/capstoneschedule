@@ -22,36 +22,32 @@ export default class CalendarView extends React.Component {
     super(props);
 
     // Assign state itself, and a default value for items
-    state = {
+    this.state = {
       modal: false,
       calendarWeekends: true,
-      event: {
-        title: "",
-        start: new Date()
-      }
-      // calendarEvents: []
+      calendarEvents: []
     };
   }
       
-// componentWillMount() {
-//     axios.get('/events')
-//       .then(response => {
-//         this.setState({calendarEvents: response.data})
-//         console.log({calendarEvents: response.data})
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       })
-//   }
+componentWillMount() {
+    axios.get('/events')
+      .then(response => {
+        this.setState({calendarEvents: response.data})
+        console.log({calendarEvents: response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
 
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ event, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ event });
-    console.log(this.state.event.title);
+    this.setState({ calendarEvent });
+    console.log(this.state.calendarEvents.title);
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -83,7 +79,7 @@ export default class CalendarView extends React.Component {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events='https://evening-hollows-87113.herokuapp.com/events'
+            events={this.state.calendarEvents}
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
@@ -95,7 +91,7 @@ export default class CalendarView extends React.Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.event.title}
+            Event Title: {this.state.calendarEvents.title}
           </ModalHeader>
           <ModalBody>
             <div>
