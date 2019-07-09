@@ -93,7 +93,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p><Link to="https://evening-gollows-87113.herokuapp.com/list">View Order List</Link></p>
+              <p><a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a></p>
             </div>
           </ModalBody>
           <ModalFooter>
