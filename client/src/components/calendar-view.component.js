@@ -104,9 +104,9 @@ componentDidMount() {
               Cancel
             </Button>
           </ModalFooter>
-        </Modal>
+        </Modal>*/}
         </div>
-      </div> */}
+      </div> 
     );
   }
 
