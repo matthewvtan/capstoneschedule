@@ -17,17 +17,19 @@ import "@fullcalendar/timegrid/main.css";
 // )
 
 export default class CalendarView extends React.Component {
-  // Added this:
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    // Assign state itself, and a default value for items
-    this.state = {
+    state = {
       modal: false,
       calendarWeekends: true,
+      event: {
+        title: "",
+        start: new Date()
+      }
       // calendarEvents: []
     };
-  }
+  // }
       
 // componentWillMount() {
 //     axios.get('/events')
