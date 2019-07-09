@@ -15,7 +15,7 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.labor}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</td>
   </tr>
 )
 

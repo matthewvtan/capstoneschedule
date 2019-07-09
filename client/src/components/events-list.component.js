@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import '../App.css';
 
 const Event = props => (
-  <tr>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
-    <td>
+  <TableRow>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</TableCell>
+    <TableCell>
         <Link to={"/complete/"+props.event._id}>Complete</Link>
-    </td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.title}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.phone}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</td>
-    <td className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.performed_by}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.repairs_performed}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.labor}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.room}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</td>
-    <td>
+    </TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.title}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.phone}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.performed_by}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.repairs_performed}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.labor}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.hours}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.materials}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.room}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</TableCell>
+    <TableCell>
         <Link to={"/edit/"+props.event._id}>Edit</Link>
-    </td>
-  </tr>
+    </TableCell>
+  </TableRow>
 )
 
 export default class EventsList extends Component {
@@ -79,35 +79,37 @@ export default class EventsList extends Component {
     
     render() {
         return (
-            <div>
+          <div>
+            <Paper>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <table className="table-responsive table-bordered" style={{ marginTop: 20}}>
-                  <thead>
-                    <tr>
-                      <th>Date / Start Time</th>
-                      <th>Complete</th>
-                      <th>Client Name</th>
-                      <th>Phone</th>
-                      <th>Client Email Address</th>
-                      <th>Job Address</th>
-                      <th>End Time</th>
-                      <th>Work Requested</th>
-                      <th>Date Repaired</th>
-                      <th>Performed By</th>
-                      <th>Repairs Performed</th>
-                      <th>Labor</th>
-                      <th>Hours</th>
-                      <th>Materials</th>
-                      <th>Room</th>
-                      <th>Status</th>
-                      <th>Edit</th>
-                    </tr>
-                  </thead>
-                    <tbody>
+                <Table className="table-responsive table-bordered" style={{ marginTop: 20}}>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Date / Start Time</TableCell>
+                      <TableCell>Complete</TableCell>
+                      <TableCell>Client Name</TableCell>
+                      <TableCell>Phone</TableCell>
+                      <TableCell>Client Email Address</TableCell>
+                      <TableCell>Job Address</TableCell>
+                      <TableCell>End Time</TableCell>
+                      <TableCell>Work Requested</TableCell>
+                      <TableCell>Date Repaired</TableCell>
+                      <TableCell>Performed By</TableCell>
+                      <TableCell>Repairs Performed</TableCell>
+                      <TableCell>Labor</TableCell>
+                      <TableCell>Hours</TableCell>
+                      <TableCell>Materials</TableCell>
+                      <TableCell>Room</TableCell>
+                      <TableCell>Status</TableCell>
+                      <TableCell>Edit</TableCell>
+                    </TableRow>
+                  </TableHead>
+                    <TableBody>
                       { this.eventList() }
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </Paper>
+          </div>
         )
     }
 }
