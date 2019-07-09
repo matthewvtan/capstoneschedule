@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
 import '../App.css';
 
 const Event = props => (
+  function Complete(props) {
+    props.event.completed ? 'Complete' : 'Incomplete'
+  }
   <tr>
     <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
     <td>
@@ -23,6 +32,7 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.room}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{Complete}</td>
     <td>
         <Link to={"/edit/"+props.event._id}>Edit</Link>
     </td>
