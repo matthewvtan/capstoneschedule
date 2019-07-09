@@ -24,8 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const classes = useStyles();
-
 const Event = props => (
   <TableRow>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.title}</TableCell>
@@ -52,7 +50,7 @@ const Event = props => (
 )
 
 export default class EventsList extends Component {
-  
+
     constructor(props) {
       super(props);
       this.state = {events: []};
@@ -62,6 +60,7 @@ export default class EventsList extends Component {
       axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
+          const classes = useStyles();
           console.log({events: response.data})
           console.log("Component Did Mount")
         })
