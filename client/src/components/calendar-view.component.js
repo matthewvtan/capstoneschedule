@@ -19,14 +19,11 @@ import "@fullcalendar/timegrid/main.css";
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      calendarWeekends: true,
-      calendarEvents: []
-    };
-  }
+  state = {
+    modal: false,
+    calendarWeekends: true,
+    calendarEvents: []
+  };
       
 componentDidMount() {
     axios.get('/events')
@@ -43,9 +40,9 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvents, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ calendarEvents });
+    this.setState({ calendarEvent });
   };
   // componentDidUpdate() {
   //   axios.get('/events')
