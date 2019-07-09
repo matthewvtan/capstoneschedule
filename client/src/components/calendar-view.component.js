@@ -81,7 +81,7 @@ componentDidMount() {
             events={this.state.events}
             eventClick={this.handleEventClick}
             nowIndicator='true'
-            navLinks={true}
+            // navLinks={true}
             height='parent'
           />
           <Modal
