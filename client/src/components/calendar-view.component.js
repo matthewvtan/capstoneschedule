@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import axios from 'axios';
+import axios from 'axios';
 import "../main.scss";
 
 import "@fullcalendar/core/main.css";
@@ -17,39 +17,32 @@ import "@fullcalendar/timegrid/main.css";
 // )
 
 export default class CalendarView extends React.Component {
-  // constructor(props) {
-  //   super(props);
+  calendarComponentRef = React.createRef();
 
-    state = {
-      modal: false,
-      calendarWeekends: true,
-      event: {
-        title: "",
-        start: new Date()
-      }
-      // calendarEvents: []
-    };
-  // }
+  state = {
+    modal: false,
+    calendarWeekends: true,
+    calendarEvents: []
+  };
       
-// componentWillMount() {
-//     axios.get('/events')
-//       .then(response => {
-//         this.setState({calendarEvents: response.data})
-//         console.log({calendarEvents: response.data})
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       })
-//   }
+componentDidMount() {
+    axios.get('/events')
+      .then(response => {
+        this.setState({calendarEvents: response.data})
+        console.log({calendarEvents: response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
 
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ event, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ event });
-    console.log(this.state.event.title);
+    this.setState({ calendarEvent });
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -81,7 +74,7 @@ export default class CalendarView extends React.Component {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            eventSources='https://evening-hollows-87113.herokuapp.com/events'
+            events={this.state.calendarEvents}
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
@@ -93,7 +86,7 @@ export default class CalendarView extends React.Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.event.title}
+            Event Title
           </ModalHeader>
           <ModalBody>
             <div>
