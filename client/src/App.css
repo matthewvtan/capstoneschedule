@@ -12,6 +12,11 @@ div.button-container .nav-link{
   color: #ffffff;
 }
 
+.form-container{
+  width: 70vw;
+  color: blue;
+}
+
 p {
   font-weight: 800;
 }
