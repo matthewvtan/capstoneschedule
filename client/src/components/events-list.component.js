@@ -89,7 +89,7 @@ export default class EventsList extends Component {
                       <TableCell>Complete</TableCell>
                       <TableCell>Client Name</TableCell>
                       <TableCell>Phone</TableCell>
-                      <TableCell>Client Email Address</TableCell>
+                      <TableCell>Client Email</TableCell>
                       <TableCell>Job Address</TableCell>
                       {/* <TableCell>End Time</TableCell> */}
                       <TableCell>Work Requested</TableCell>
