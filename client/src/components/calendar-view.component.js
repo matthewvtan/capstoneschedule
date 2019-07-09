@@ -1,7 +1,8 @@
 import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interaction from "@fullcalendar/interaction";
+import interactionPlugin from "@fullcalendar/interaction";
+import timeGridPlugin from "@fullcalendar/timegrid";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 export default class CalendarView extends React.Component {
@@ -26,18 +27,18 @@ export default class CalendarView extends React.Component {
     return (
       <div id="calendar" className="container" ref="calendar">
         <FullCalendar
-          header={{
-            left: "prev,next today",
-            center: "title",
-            right: "dayGridMonth, listWeek"
-          }}
-          selectable={true}
-          plugins={[interaction, dayGridPlugin]}
+          defaultView="timeGridDay"
+                        header={{
+                          left: "prev,next today",
+                          center: "title",
+                          right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+                        }}
+                        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           themeSystem="bootstrap"
           weekends={false}
           displayEventTime={true}
           timeZone="UTC"
-          events="https://www.evening-hollows-87113.com/events"
+          events="https://www.evening-hollows-87113.herokuapp.com/events"
           eventRender={this.handleEventRender}
           eventClick={this.handleEventClick}
         />
