@@ -22,32 +22,36 @@ export default class CalendarView extends React.Component {
     super(props);
 
     // Assign state itself, and a default value for items
-    this.state = {
+    state = {
       modal: false,
       calendarWeekends: true,
-      calendarEvents: []
+      event: {
+        title: "",
+        start: new Date()
+      }
+      // calendarEvents: []
     };
   }
       
-componentWillMount() {
-    axios.get('/events')
-      .then(response => {
-        this.setState({calendarEvents: response.data})
-        console.log({calendarEvents: response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
+// componentWillMount() {
+//     axios.get('/events')
+//       .then(response => {
+//         this.setState({calendarEvents: response.data})
+//         console.log({calendarEvents: response.data})
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       })
+//   }
 
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvents, el }) => {
+  handleEventClick = ({ event, el }) => {
     this.toggle();
-    this.setState({ calendarEvents });
-    console.log(this.state.calendarEvents.title);
+    this.setState({ event });
+    console.log(this.state.event.title);
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -91,7 +95,7 @@ componentWillMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.calendarEvents.title}
+            Event Title: {this.state.event.title}
           </ModalHeader>
           <ModalBody>
             <div>
