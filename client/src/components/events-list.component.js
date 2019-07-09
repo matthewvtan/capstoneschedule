@@ -29,7 +29,7 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.room}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</td>
     <td>
         <Link to={"/edit/"+props.event._id}>Edit</Link>
     </td>
@@ -99,6 +99,7 @@ export default class EventsList extends Component {
                       <th>Hours</th>
                       <th>Materials</th>
                       <th>Room</th>
+                      <th>Status</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
