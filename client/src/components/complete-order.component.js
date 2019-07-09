@@ -186,7 +186,7 @@ export default class CompleteOrder extends Component {
   
     render() {
         return (
-            <div className="form-container" style={{marginTop: 30}}>
+            <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
               <form onSubmit={this.onSubmit}>
                   <div className="inactive">
