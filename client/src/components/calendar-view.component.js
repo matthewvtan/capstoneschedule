@@ -2,7 +2,6 @@ import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interaction from "@fullcalendar/interaction";
-import bootstrapPlugin from "@fullcalendar/bootstrap";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 import "../node_modules/@fullcalendar/core/main.css";
@@ -38,7 +37,7 @@ export default class CalendarView extends Component {
             right: "dayGridMonth, listWeek"
           }}
           selectable={true}
-          plugins={[interaction, dayGridPlugin, bootstrapPlugin]}
+          plugins={[interaction, dayGridPlugin]}
           themeSystem="bootstrap"
           weekends={false}
           displayEventTime={true}
