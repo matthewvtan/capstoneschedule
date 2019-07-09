@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -93,7 +93,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>Date and Time</p>
+              <p><Link to="https://evening-gollows-87113.herokuapp.com/list">View Order List</Link></p>
             </div>
           </ModalBody>
           <ModalFooter>
