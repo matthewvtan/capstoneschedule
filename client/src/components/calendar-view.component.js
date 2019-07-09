@@ -90,7 +90,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>Date and Time</p>
+              <a href="#">Date and Time</a>
             </div>
           </ModalBody>
           <ModalFooter>
