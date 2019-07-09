@@ -6,11 +6,14 @@ import '../App.css';
 
 const Event = props => (
   <tr>
+    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
+    <td>
+        <Link to={"/complete/"+props.event._id}>Complete</Link>
+    </td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.title}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.phone}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</td>
     <td className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.start).format("MM/DD/YYYY hh:mm a")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</td>
     <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</td>
@@ -22,9 +25,6 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.room}</td>
     <td>
         <Link to={"/edit/"+props.event._id}>Edit</Link>
-    </td>
-    <td>
-        <Link to={"/complete/"+props.event._id}>Complete</Link>
     </td>
   </tr>
 )
@@ -77,11 +77,12 @@ export default class EventsList extends Component {
                 <table className="table-responsive table-bordered" style={{ marginTop: 20}}>
                   <thead>
                     <tr>
+                      <th>Date / Start Time</th>
+                      <th>Complete</th>
                       <th>Client Name</th>
                       <th>Phone</th>
                       <th>Client Email Address</th>
                       <th>Job Address</th>
-                      <th>Date / Start Time</th>
                       <th>End Time</th>
                       <th>Work Requested</th>
                       <th>Date Repaired</th>
@@ -92,7 +93,6 @@ export default class EventsList extends Component {
                       <th>Materials</th>
                       <th>Room</th>
                       <th>Edit</th>
-                      <th>Complete</th>
                     </tr>
                   </thead>
                     <tbody>
