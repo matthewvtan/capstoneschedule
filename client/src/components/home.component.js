@@ -14,21 +14,21 @@ export default class Home extends Component {
                 {/* <a href="#" class="btn-gradient blue block">
                     <Link to="/list" className="nav-link">List</Link>
                 </a> */}
-                <br />
+                <br /><br />
                 <Button variant="contained" color="primary">
                     <Link to="/create" className="nav-link">Create</Link>
                 </Button>
                 {/* <a href="#" class="btn-gradient blue block">
                     <Link to="/create" className="nav-link">New Order</Link>
                 </a> */}
-                <br />
+                <br /><br />
                 <Button variant="contained" color="primary">
                     <Link to="/calendar" className="nav-link">Calendar</Link>
                 </Button>
                 {/* <a href="#" class="btn-gradient blue block">
                     <Link to="/calendar" className="nav-link">Calendar</Link>
                 </a> */}
-                <br />
+                <br /><br />
                 <Button variant="contained" color="primary">
                     <Link to="/export" className="nav-link">Export</Link>
                 </Button>

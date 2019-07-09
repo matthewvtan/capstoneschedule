@@ -8,7 +8,7 @@
   font-weight: 600;
 }
 
-.navLink{
+div.button-container .nav-link{
   color: #ffffff;
 }
 
@@ -17,6 +17,7 @@ p {
 }
 
 div.button-container {
+  margin: 0 auto;
   align-content: center;
   align-items: center;
 }
