@@ -34,11 +34,10 @@ export default class CalendarView extends React.Component {
                           right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
                         }}
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          themeSystem="bootstrap"
           weekends={false}
           displayEventTime={true}
           timeZone="UTC"
-          events="https://www.evening-hollows-87113.herokuapp.com/events"
+          events="https://evening-hollows-87113.herokuapp.com/events"
           eventRender={this.handleEventRender}
           eventClick={this.handleEventClick}
         />
