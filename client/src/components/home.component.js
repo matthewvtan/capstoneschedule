@@ -8,7 +8,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="button-container">
-                <Button variant="contained" color="primary" className={classes.button}>
+                <Button variant="contained" color="primary">
                     <Link to="/list" className="nav-link">List</Link>
                 </Button>
                 {/* <a href="#" class="btn-gradient blue block">
