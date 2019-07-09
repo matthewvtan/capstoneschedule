@@ -12,18 +12,6 @@ import Paper from '@material-ui/core/Paper';
 import '../App.css';
 import 'typeface-roboto';
 
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-}));
-
 const Event = props => (
   <TableRow>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.title}</TableCell>
@@ -60,7 +48,6 @@ export default class EventsList extends Component {
       axios.get('/events')
         .then(response => {
           this.setState({events: response.data})
-          const classes = useStyles();
           console.log({events: response.data})
           console.log("Component Did Mount")
         })

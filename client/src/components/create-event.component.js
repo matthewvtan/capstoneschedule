@@ -113,7 +113,7 @@ export default class CreateEvent extends Component {
         }      
       
       axios.post('/events/add', newEvent)
-        .then(res => console.log(res.data));
+        .then(res => console.log(res.data) alert("New Order Created"));
       
       this.setState({
         title:'',
