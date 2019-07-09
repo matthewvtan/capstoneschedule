@@ -1,6 +1,5 @@
 import React from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayListPlugin from "@fullcalendar/list";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interaction from "@fullcalendar/interaction";
 import bootstrapPlugin from "@fullcalendar/bootstrap";
@@ -39,7 +38,7 @@ export default class CalendarView extends Component {
             right: "dayGridMonth, listWeek"
           }}
           selectable={true}
-          plugins={[interaction, dayListPlugin, dayGridPlugin, bootstrapPlugin]}
+          plugins={[interaction, dayGridPlugin, bootstrapPlugin]}
           themeSystem="bootstrap"
           weekends={false}
           displayEventTime={true}
