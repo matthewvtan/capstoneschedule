@@ -12,18 +12,21 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-// const Links = props => (
-// <Link to={"/edit/"+props.links._id} />
-// )
+const Links = props => (
+<Link to={"/edit/"+props.links._id} />
+)
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
 
-  state = {
-    modal: false,
-    calendarWeekends: true,
-    calendarEvents: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      calendarWeekends: true,
+      calendarEvents: []
+    };
+  }
       
 componentDidMount() {
     axios.get('/events')
@@ -40,9 +43,9 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvent, el }) => {
+  handleEventClick = ({ calendarEvents, el }) => {
     this.toggle();
-    this.setState({ calendarEvent });
+    this.setState({ calendarEvents });
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -54,11 +57,11 @@ componentDidMount() {
   //     })
   // }
 
-  // eventLinks() {
-  //   return this.state.calendarEvents.map(function(currentEvent, i) {
-  //     return <Links links={currentEvent} key={i} />
-  //   });
-  // }
+  eventLinks() {
+    return this.state.calendarEvents.map(function(currentEvent, i) {
+      return <Links links={currentEvent} key={i} />
+    });
+  }
 
   render() {
     return (
@@ -90,7 +93,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>Date and Time</p>
+              <p>{this.eventLinks}</p>
             </div>
           </ModalBody>
           <ModalFooter>
