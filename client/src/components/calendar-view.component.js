@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interaction from "@fullcalendar/interaction";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-export default class CalendarView extends Component {
+export default class CalendarView extends React.Component {
   state = {
     modal: false,
     event: {
