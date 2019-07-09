@@ -39,15 +39,15 @@ componentDidMount() {
       })
   }
 
-  // toggle = () => {
-  //   this.setState({ modal: !this.state.modal });
-  // };
+  toggle = () => {
+    this.setState({ modal: !this.state.modal });
+  };
 
-  // handleEventClick = ({ events, el }) => {
-  //   this.toggle();
-  //   this.setState({ events });
-  // };
-
+  handleEventClick = ({ events, el }) => {
+    this.toggle();
+    this.setState({ events });
+  };
+  
   // componentDidUpdate() {
   //   axios.get('/events')
   //     .then(response => {
@@ -79,19 +79,18 @@ componentDidMount() {
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
             events={this.state.events}
-            url='https://evening-hollows-87113.herokuapp.com/list'
-            // eventClick={this.handleEventClick}
+            eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
             height='parent'
           />
-          {/* <Modal
+          <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title
+            <Link to="https://evening-hollows-87113.herokuapp.com/list">View Order List</Link>
           </ModalHeader>
           <ModalBody>
             <div>
@@ -104,9 +103,9 @@ componentDidMount() {
               Cancel
             </Button>
           </ModalFooter>
-        </Modal>*/}
+        </Modal>
         </div>
-      </div> 
+      </div>
     );
   }
 
