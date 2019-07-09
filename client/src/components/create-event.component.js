@@ -152,14 +152,14 @@ export default class CreateEvent extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label>Email Address: </label>
+                    <label>Client Email Address: </label>
                     <input type="text" className="form-control" placeholder="Email Address" value={this.state.email_address} onChange={this.onChangeEmailAddress}
                     />
                   </div>
 
                   <div className="form-group">
                     <label>Job Address: </label>
-                    <input type="text" className="form-control" placeholder="If different than above address" value={this.state.job_address} onChange={this.onChangeJobAddress}
+                    <input type="text" className="form-control" placeholder="Job Address" value={this.state.job_address} onChange={this.onChangeJobAddress}
                     />
                   </div>
 

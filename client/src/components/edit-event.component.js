@@ -206,7 +206,7 @@ export default class EditEvent extends Component {
                     />
                 </div>
                 <div className="form-group">
-                  <label>Email Address:</label>
+                  <label>Client Email Address:</label>
                   <input type="text"
                     className="form-control"
                     value={this.state.email_address}

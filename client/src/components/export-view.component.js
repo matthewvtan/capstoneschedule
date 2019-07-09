@@ -15,6 +15,7 @@ const Event = props => (
     <td className={props.event.completed ? 'completed' : ''}>{props.event.labor}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
     <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
+    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed}</td>
   </tr>
 )
 
@@ -74,6 +75,7 @@ export default class ExportView extends Component {
                       <th>Labor</th>
                       <th>Hours</th>
                       <th>Materials</th>
+                      <th>Completed</th>
                     </tr>
                   </thead>
                     <tbody>

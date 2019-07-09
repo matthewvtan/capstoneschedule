@@ -30,7 +30,7 @@ export default class Nav extends React.Component {
         <div className={"collapse navbar-collapse " + show}>
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-              <Link to="/" className="nav-link">List</Link>
+              <Link to="/list" className="nav-link">List</Link>
             </li>
             <li>
               <Link to="/create" className="nav-link">Add</Link>
