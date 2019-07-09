@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
-import '../App.css';
-import 'typeface-roboto';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +9,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import '../App.css';
+import 'typeface-roboto';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const classes = useStyles();
 
 const Event = props => (
   <TableRow>
@@ -92,7 +93,6 @@ export default class EventsList extends Component {
     }
 
     render() {
-      const classes = useStyles();
         return (
             <Paper className={classes.root}>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>

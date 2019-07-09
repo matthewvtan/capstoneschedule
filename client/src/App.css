@@ -67,6 +67,7 @@ button[class*="btn"] {border: 0;}
 
 
 
+
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
@@ -80,3 +81,4 @@ only screen and (max-width: 760px),
     width: 90vw;
   }
 };
+
