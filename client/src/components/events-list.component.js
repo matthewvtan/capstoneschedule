@@ -20,7 +20,7 @@ const Event = props => (
     <TableCell align="center" className={props.event.completed ? 'completed' : ''}>{props.event.phone}</TableCell>
     <TableCell align="center" className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell>
     <TableCell align="center" className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></TableCell>
-    <TableCell align="center" className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</TableCell>
+    {/* <TableCell align="center" className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</TableCell> */}
     <TableCell align="center" className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</TableCell>
     {/* <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY")}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.performed_by}</TableCell>
@@ -91,7 +91,7 @@ export default class EventsList extends Component {
                       <TableCell align="center">Phone</TableCell>
                       <TableCell align="center">Client Email Address</TableCell>
                       <TableCell align="center">Job Address</TableCell>
-                      <TableCell align="center">End Time</TableCell>
+                      {/* <TableCell align="center">End Time</TableCell> */}
                       <TableCell align="center">Work Requested</TableCell>
                       {/* <TableCell>Date Repaired</TableCell>
                       <TableCell>Performed By</TableCell>
