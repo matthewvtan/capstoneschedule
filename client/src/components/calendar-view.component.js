@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -12,27 +12,24 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-// const Events = props => (
-// <Link to={"/edit/"+props.events._id} />
+// const Links = props => (
+// <Link to={"/edit/"+props.links._id} />
 // )
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      calendarWeekends: true,
-      events: []
-    };
-  }
+  state = {
+    modal: false,
+    calendarWeekends: true,
+    calendarEvents: []
+  };
       
 componentDidMount() {
     axios.get('/events')
       .then(response => {
-        this.setState({events: response.data})
-        console.log({events: response.data})
+        this.setState({calendarEvents: response.data})
+        console.log({calendarEvents: response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -43,15 +40,14 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ events, el }) => {
+  handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
-    this.setState({ events });
+    this.setState({ calendarEvent });
   };
-  
   // componentDidUpdate() {
   //   axios.get('/events')
   //     .then(response => {
-  //       this.setState({events: response.data})
+  //       this.setState({calendarEvents: response.data})
   //     })
   //     .catch(function (error) {
   //       console.log(error);
@@ -59,8 +55,8 @@ componentDidMount() {
   // }
 
   // eventLinks() {
-  //   return this.state.events.map(function(currentEvent, i) {
-  //     return <Events events={currentEvent} key={i} />
+  //   return this.state.calendarEvents.map(function(currentEvent, i) {
+  //     return <Links links={currentEvent} key={i} />
   //   });
   // }
 
@@ -78,10 +74,10 @@ componentDidMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events={this.state.events}
+            events={this.state.calendarEvents}
             eventClick={this.handleEventClick}
             nowIndicator='true'
-            // navLinks={true}
+            navLinks={true}
             height='parent'
           />
           <Modal
@@ -90,13 +86,11 @@ componentDidMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title
+            Event
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>
-              <Link to="https://evening-hollows-87113.herokuapp.com/list">View Order List</Link>
-              </p>
+              <p>Date and Time</p>
             </div>
           </ModalBody>
           <ModalFooter>
@@ -113,6 +107,6 @@ componentDidMount() {
 
   // handleEventClick = arg => {
   //   alert("event id: "+this.state.eventId);
-  //   console.log("Event ID: "+this.state.events);
+  //   console.log("Event ID: "+this.state.calendarEvents);
   // }
 }
