@@ -80,12 +80,12 @@ export default class EventsList extends Component {
     render() {
         return (
           <div>
+            <h3 style={{marginTop: 20}}>Work Orders</h3>
             <Paper>
-                <h3 style={{marginTop: 20}}>Work Orders</h3>
                 <Table className="table-responsive table-bordered" style={{ marginTop: 20}}>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Date / Start Time</TableCell>
+                      <TableCell>Date/Time</TableCell>
                       <TableCell>Complete</TableCell>
                       <TableCell>Client Name</TableCell>
                       <TableCell>Phone</TableCell>
