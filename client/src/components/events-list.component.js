@@ -80,9 +80,9 @@ export default class EventsList extends Component {
 
     render() {
         return (
-            <Paper className={classes.root}>
+            <Paper>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <Table className={classes.table} style={{ marginTop: 20}}>
+                <Table style={{ marginTop: 20}}>
                   <TableHead>
                     <TableRow>
                       <TableCell>Client Name</TableCell>
