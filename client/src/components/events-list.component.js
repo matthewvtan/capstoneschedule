@@ -18,7 +18,7 @@ const Event = props => (
     </TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.title}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.phone}</TableCell>
-    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell>
+    {/* <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell> */}
     <TableCell className={props.event.completed ? 'completed' : ''}><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{props.event.job_address}</a></TableCell>
     {/* <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.end).format("MM/DD/YYYY hh:mm a")}</TableCell> */}
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.work_requested}</TableCell>
@@ -89,7 +89,7 @@ export default class EventsList extends Component {
                       <TableCell>Complete</TableCell>
                       <TableCell>Client Name</TableCell>
                       <TableCell>Phone</TableCell>
-                      <TableCell>Client Email</TableCell>
+                      {/* <TableCell>Client Email</TableCell> */}
                       <TableCell>Job Address</TableCell>
                       {/* <TableCell>End Time</TableCell> */}
                       <TableCell>Work Requested</TableCell>
