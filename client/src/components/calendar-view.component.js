@@ -13,7 +13,7 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
 const Events = props => (
-<Event to={"/edit/"+props.events._id} />
+<Link to={"/edit/"+props.events._id} />
 )
 
 export default class CalendarView extends React.Component {
