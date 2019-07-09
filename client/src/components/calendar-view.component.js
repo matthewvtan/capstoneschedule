@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import axios from 'axios';
+// import axios from 'axios';
 import "../main.scss";
 
 import "@fullcalendar/core/main.css";
@@ -25,29 +25,29 @@ export default class CalendarView extends React.Component {
     this.state = {
       modal: false,
       calendarWeekends: true,
-      calendarEvents: []
+      // calendarEvents: []
     };
   }
       
-componentWillMount() {
-    axios.get('/events')
-      .then(response => {
-        this.setState({calendarEvents: response.data})
-        console.log({calendarEvents: response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
+// componentWillMount() {
+//     axios.get('/events')
+//       .then(response => {
+//         this.setState({calendarEvents: response.data})
+//         console.log({calendarEvents: response.data})
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       })
+//   }
 
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvent, el }) => {
+  handleEventClick = ({ event, el }) => {
     this.toggle();
-    this.setState({ calendarEvent });
-    console.log(this.state.calendarEvents.title);
+    this.setState({ event });
+    console.log(this.state.event.title);
   };
   // componentDidUpdate() {
   //   axios.get('/events')
@@ -79,7 +79,7 @@ componentWillMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events={this.state.calendarEvents}
+            eventSources='https://evening-hollows-87113.herokuapp.com/events'
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
@@ -91,7 +91,7 @@ componentWillMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.calendarEvents.title}
+            Event Title: {this.state.event.title}
           </ModalHeader>
           <ModalBody>
             <div>
