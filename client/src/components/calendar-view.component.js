@@ -12,9 +12,9 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-const Events = props => (
-<Link to={"/edit/"+props.events._id} />
-)
+// const Events = props => (
+// <Link to={"/edit/"+props.events._id} />
+// )
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
@@ -58,11 +58,11 @@ componentDidMount() {
   //     })
   // }
 
-  eventLinks() {
-    return this.state.events.map(function(currentEvent, i) {
-      return <Events events={currentEvent} key={i} />
-    });
-  }
+  // eventLinks() {
+  //   return this.state.events.map(function(currentEvent, i) {
+  //     return <Events events={currentEvent} key={i} />
+  //   });
+  // }
 
   render() {
     return (
@@ -90,11 +90,13 @@ componentDidMount() {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            <Link to="https://evening-hollows-87113.herokuapp.com/list">View Order List</Link>
+            Event Title
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.eventLinks}</p>
+              <p>
+              <Link to="https://evening-hollows-87113.herokuapp.com/list">View Order List</Link>
+              </p>
             </div>
           </ModalBody>
           <ModalFooter>
