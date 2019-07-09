@@ -12,8 +12,8 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-const Links = props => (
-<Link to={"/edit/"+props.links._id} />
+const Events = props => (
+<Event to={"/edit/"+props.events._id} />
 )
 
 export default class CalendarView extends React.Component {
@@ -24,15 +24,15 @@ export default class CalendarView extends React.Component {
     this.state = {
       modal: false,
       calendarWeekends: true,
-      calendarEvents: []
+      events: []
     };
   }
       
 componentDidMount() {
     axios.get('/events')
       .then(response => {
-        this.setState({calendarEvents: response.data})
-        console.log({calendarEvents: response.data})
+        this.setState({events: response.data})
+        console.log({events: response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -43,14 +43,14 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvents, el }) => {
+  handleEventClick = ({ events, el }) => {
     this.toggle();
-    this.setState({ calendarEvents });
+    this.setState({ events });
   };
   // componentDidUpdate() {
   //   axios.get('/events')
   //     .then(response => {
-  //       this.setState({calendarEvents: response.data})
+  //       this.setState({events: response.data})
   //     })
   //     .catch(function (error) {
   //       console.log(error);
@@ -58,8 +58,8 @@ componentDidMount() {
   // }
 
   eventLinks() {
-    return this.state.calendarEvents.map(function(currentEvent, i) {
-      return <Links links={currentEvent} key={i} />
+    return this.state.events.map(function(currentEvent, i) {
+      return <Events events={currentEvent} key={i} />
     });
   }
 
@@ -77,7 +77,7 @@ componentDidMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events={this.state.calendarEvents}
+            events={this.state.events}
             eventClick={this.handleEventClick}
             nowIndicator='true'
             navLinks={true}
@@ -110,6 +110,6 @@ componentDidMount() {
 
   // handleEventClick = arg => {
   //   alert("event id: "+this.state.eventId);
-  //   console.log("Event ID: "+this.state.calendarEvents);
+  //   console.log("Event ID: "+this.state.events);
   // }
 }
