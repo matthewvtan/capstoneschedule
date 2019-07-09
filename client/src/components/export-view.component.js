@@ -75,7 +75,7 @@ export default class ExportView extends Component {
                       <th>Labor</th>
                       <th>Hours</th>
                       <th>Materials</th>
-                      <th>Completed</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                     <tbody>
