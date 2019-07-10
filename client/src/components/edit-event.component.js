@@ -1,5 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Paper from '@material-ui/core/Paper';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+const labors = [
+  {
+    value: 'T1',
+    label: 'T1',
+  },
+  {
+    value: 'T2',
+    label: 'T2',
+  },
+  {
+    value: 'T3',
+    label: 'T3',
+  },
+  {
+    value: 'T4',
+    label: 'T4',
+  },
+];
 
 export default class EditEvent extends Component {
   
@@ -193,151 +219,458 @@ export default class EditEvent extends Component {
       
     this.props.history.push('/');
   }
-  
-    render() {
-        return (
-            <div className="form-container" style={{marginTop: 80}}>
-              <h3>Complete Order</h3>
-              <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <label>Title:</label>
-                  <input type="text"
-                    className="form-control"
+
+  render() {
+    return (
+      <div className="form-container" style={{margin: 30}}>
+        <h3>Edit Work Order</h3>
+          <Paper style={{paddingBottom: 30}}>
+            <form onSubmit={this.onSubmit} style={{margin: 20}}>
+
+            <div className="form-group">
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Client Name"
+                    placeholder="Client Name"
+                    margin="normal"
+                    variant="outlined"
                     value={this.state.title}
                     onChange={this.onChangeTitle}
                     />
-                </div>
-                <div className="form-group">
-                  <label>Phone:</label>
-                  <input type="text"
-                    className="form-control"
+              </div>
+              <div className="form-group">
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Phone Number"
+                    placeholder="555-555-5555"
+                    margin="normal"
+                    variant="outlined"
                     value={this.state.phone}
                     onChange={this.onChangePhone}
                     />
-                </div>
-                <div className="form-group">
-                  <label>Client Email Address:</label>
-                  <input type="text"
-                    className="form-control"
+              </div>
+              <div className="form-group">
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Client Email"
+                    placeholder="Client Email Address"
+                    margin="normal"
+                    variant="outlined"
                     value={this.state.email_address}
                     onChange={this.onChangeEmailAddress}
                     />
-                </div>
-                <div className="form-group">
-                  <label>Job Address:</label>
-                  <input type="text"
-                    className="form-control"
+              </div>
+
+              <div className="form-group">
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Job Address"
+                    placeholder="Job Address"
+                    margin="normal"
+                    variant="outlined"
                     value={this.state.job_address}
                     onChange={this.onChangeJobAddress}
                     />
+              </div>
+
+              <div className="form-group">
+                <TextField
+                  id="outlined-with-placeholder"
+                  label="Assignee"
+                  placeholder="Employee Name"
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.employee}
+                  onChange={this.onChangeEmployee}
+                  />
+              </div>
+              {/* <div className="form-group">
+                <TextField
+                  id="datetime-local"
+                  label="Date/Start Time"
+                  type="datetime-local"
+                  value={this.state.start}
+                  onChange={this.onChangeStart}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
                 </div>
                 <div className="form-group">
-                  <label>Assignee:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.employee}
-                    onChange={this.onChangeEmployee}
-                    />
-                </div>
+                <TextField
+                  id="time"
+                  label="End Time"
+                  type="time"
+                  value={this.state.end}
+                  onChange={this.onChangeEnd}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                </div> */}
+
+              <div className="form-group">
+                <label>Date: </label><br />
+                <DatePicker dateFormat="yyyy/MM/dd h:mm a"
+                            selected={this.state.start}
+                            showTimeSelect
+                            timeIntervals={30}
+                            timeCaption="Start"
+                            placeholderText="Choose Date"
+                            className="form-control"
+                            placeholder={this.state.start} 
+                            value={this.state.start} 
+                            onChange={this.onChangeStart}
+                />
+              </div>
+              <div className="form-group">
+                <label>End Time: </label><br />
+                <DatePicker placeholderText="Choose End Time"
+                            selected={this.state.end}
+                            showTimeSelect
+                            showTimeSelectOnly
+                            timeIntervals={30}
+                            dateFormat="h:mm aa"
+                            timeCaption="End"
+                            className="form-control"
+                            value={this.state.end} 
+                            onChange={this.onChangeEnd}
+                />
+              </div>
+
                 <div className="form-group">
-                  <label>Start:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.start}
-                    onChange={this.onChangeStart}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>End:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.end}
-                    onChange={this.onChangeEnd}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Work Requested:</label>
-                  <input type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Work Requested"
+                    placeholder="Work Requested"
+                    margin="normal"
+                    variant="outlined"
                     value={this.state.work_requested}
                     onChange={this.onChangeWorkRequested}
                     />
                 </div>
                 <div className="form-group">
-                  <label>Date Repaired:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.date_repaired}
-                    onChange={this.onChangeDateRepaired}
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Date Repaired"
+                        placeholder="MM/DD/YYYY"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.date_repaired}
+                        onChange={this.onChangeDateRepaired}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Performed By"
+                        placeholder="Employee Name"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.performed_by}
+                        onChange={this.onChangePerformedBy}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Repairs Performed"
+                        placeholder="Repairs Performed"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.repairs_performed}
+                        onChange={this.onChangeRepairsPerformed}
+                        />
+                    </div>
+
+    {/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
+                    <div className="form-group">
+                      <TextField
+                              id="outlined-select-currency"
+                              select
+                              label="Labor"
+                              value={this.state.labor}
+                              onChange={this.onChangeLabor}
+                              SelectProps={{
+                                MenuProps: {},
+                              }}
+                              helperText="Select T1, T2, T3, or T4"
+                              margin="normal"
+                              variant="outlined"
+                            >
+                              {labors.map(option => (
+                                <MenuItem key={option.value} value={option.value}>
+                                  {option.label}
+                                </MenuItem>
+                              ))}
+                        </TextField>
+                      </div>
+                    {/* <div className="form-group">
+                      <label>Labor:</label>
+                      <div className="form-group">
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="priorityOptions" 
+                                        id="laborT1" 
+                                        value="T1"
+                                        checked={this.state.labor==='T1'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T1</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="priorityOptions" 
+                                        id="laborT2" 
+                                        value="T2" 
+                                        checked={this.state.labor==='T2'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T2</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="laborOptions" 
+                                        id="laborT3" 
+                                        value="T3" 
+                                        checked={this.state.labor==='T3'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T3</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="laborOptions" 
+                                        id="laborT4" 
+                                        value="T4" 
+                                        checked={this.state.labor==='T4'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T4</label>
+                            </div>
+                        </div>
+                    </div> */}
+    {/* - - - - - - - - - - - - LABOR INPUT ENDS HERE - - - - - - - - - - - */}
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Hours"
+                        placeholder="Hours"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.hours}
+                        onChange={this.onChangeHours}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Materials Used"
+                        placeholder="Materials Used"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.materials}
+                        onChange={this.onChangeMaterials}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Room"
+                        placeholder="Room"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.room}
+                        onChange={this.onChangeRoom}
+                        />
+                    </div>
+                    <div className="form-check">
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.completed}
+                          onChange={this.onChangeCompleted}
+                          value={this.state.completed}
+                          color="primary"
+                        />
+                      }
+                      label="Completed"
                     />
-                </div>
-                <div className="form-group">
-                  <label>Performed By:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.performed_by}
-                    onChange={this.onChangePerformedBy}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Repairs Performed:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.repairs_performed}
-                    onChange={this.onChangeRepairsPerformed}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Labor:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.labor}
-                    onChange={this.onChangeLabor}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Hours:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.hours}
-                    onChange={this.onChangeHours}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Materials:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.materials}
-                    onChange={this.onChangeMaterials}
-                    />
-                </div>
-                <div className="form-group">
-                  <label>Room:</label>
-                  <input type="text"
-                    className="form-control"
-                    value={this.state.room}
-                    onChange={this.onChangeRoom}
-                    />
-                </div>
-                <div className="form-check">
-                  <input type="checkbox"
-                    className="form-check-input"
-                    id="completedCheckbox"
-                    name="completedCheckbox"
-                    onChange={this.onChangeCompleted}
-                    checked={this.state.completed}
-                    value={this.state.completed}
-                    />
-                  <label className="form-check-label" htmlFor="completedCheckbox">
-                  Completed
-                  </label>
-                </div>
-                <br/>
-                <div className="form-group">
-                  <input type="submit" value="Save Changes" className="btn btn-primary" />
-                </div>
-              </form>
-            </div>
-        )
-    }
+                    </div>
+
+    {/* - - - - - BOOTSTRAP INPUT CHECKBOX FOR COMPLETED
+
+                    <div className="form-check">
+                      <input type="checkbox"
+                        className="form-check-input"
+                        id="completedCheckbox"
+                        name="completedCheckbox"
+                        onChange={this.onChangeCompleted}
+                        checked={this.state.completed}
+                        value={this.state.completed}
+                        />
+                      <label className="form-check-label" htmlFor="completedCheckbox">
+                      Completed
+                      </label>
+                    </div> */}
+
+                    <br/>
+              <input type="submit" value="Update Order" className="btn btn-primary" />
+            </form>
+          </Paper>
+      </div>
+    )
 }
+}
+  
+//     render() {
+//         return (
+//             <div className="form-container" style={{marginTop: 80}}>
+//               <h3>Complete Order</h3>
+//               <form onSubmit={this.onSubmit}>
+//                 <div className="form-group">
+//                   <label>Title:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.title}
+//                     onChange={this.onChangeTitle}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Phone:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.phone}
+//                     onChange={this.onChangePhone}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Client Email Address:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.email_address}
+//                     onChange={this.onChangeEmailAddress}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Job Address:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.job_address}
+//                     onChange={this.onChangeJobAddress}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Assignee:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.employee}
+//                     onChange={this.onChangeEmployee}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Start:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.start}
+//                     onChange={this.onChangeStart}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>End:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.end}
+//                     onChange={this.onChangeEnd}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Work Requested:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.work_requested}
+//                     onChange={this.onChangeWorkRequested}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Date Repaired:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.date_repaired}
+//                     onChange={this.onChangeDateRepaired}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Performed By:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.performed_by}
+//                     onChange={this.onChangePerformedBy}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Repairs Performed:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.repairs_performed}
+//                     onChange={this.onChangeRepairsPerformed}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Labor:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.labor}
+//                     onChange={this.onChangeLabor}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Hours:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.hours}
+//                     onChange={this.onChangeHours}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Materials:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.materials}
+//                     onChange={this.onChangeMaterials}
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Room:</label>
+//                   <input type="text"
+//                     className="form-control"
+//                     value={this.state.room}
+//                     onChange={this.onChangeRoom}
+//                     />
+//                 </div>
+//                 <div className="form-check">
+//                   <input type="checkbox"
+//                     className="form-check-input"
+//                     id="completedCheckbox"
+//                     name="completedCheckbox"
+//                     onChange={this.onChangeCompleted}
+//                     checked={this.state.completed}
+//                     value={this.state.completed}
+//                     />
+//                   <label className="form-check-label" htmlFor="completedCheckbox">
+//                   Completed
+//                   </label>
+//                 </div>
+//                 <br/>
+//                 <div className="form-group">
+//                   <input type="submit" value="Save Changes" className="btn btn-primary" />
+//                 </div>
+//               </form>
+//             </div>
+//         )
+//     }
+// }

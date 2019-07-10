@@ -169,7 +169,7 @@ export default class CompleteOrder extends Component {
         return (
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
-                <Paper>
+                <Paper style={{paddingBottom: 30}}>
                   <form onSubmit={this.onSubmit} style={{margin: 20}}>
                     <div className="form-group">
                       <TextField
