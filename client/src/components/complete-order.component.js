@@ -279,7 +279,8 @@ export default class CompleteOrder extends Component {
                   <input ref="name"
                     type="text"
                     className="form-control"
-                    value={this.state.date_repaired}
+                    // value={this.state.date_repaired}
+                    value={this.state.fields["name"]}
                     onChange={this.onChangeDateRepaired.bind(this, "name")}
                     />
                     <span className="error">{this.state.errors["name"]}</span>
