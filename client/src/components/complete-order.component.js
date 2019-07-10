@@ -147,65 +147,141 @@ export default class CompleteOrder extends Component {
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
               <form onSubmit={this.onSubmit}>
-                  <div className="inactive">
-                    <div className="form-group">
-                    <label>Client Name:</label>
-                    <p>{this.state.title}</p>
-                    </div>
-                    <div className="form-group">
-                    <label>Phone:</label>
-                    <p>{this.state.phone}</p>
-                    </div>
-                    <div className="form-group">
-                    <label>Email Address:</label>
-                    <p>{this.state.email_address}</p>
-
-                    </div>
-                    <div className="form-group">
-                    <label>Job Address:</label>
-                    <p>{this.state.job_address}</p>
-
-                    </div>
-                    <div className="form-group">
-                    <label>Start:</label>
-                    <p>{this.state.start}</p>
-                    </div>
-                    <div className="form-group">
-                    <label>End:</label>
-                    <p>{this.state.end}</p>
-                    </div>
-                    <div className="form-group">
-                    <label>Work Requested:</label>
-                    <p>{this.state.workRequested}</p>
-                    </div>
-                  </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Client Name"
+                    defaultValue={this.state.title}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Phone Number"
+                    defaultValue={this.state.phone}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Client Email"
+                    defaultValue={this.state.email_address}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Job Address"
+                    defaultValue={this.state.job_address}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Assignee"
+                    defaultValue={this.state.employee}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Date / Start Time"
+                    defaultValue={this.state.start}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Est. End Time"
+                    defaultValue={this.state.end}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+                <div className="form-group">
+                  <TextField
+                    id="outlined-read-only-input"
+                    label="Work Requested"
+                    defaultValue={this.state.work_requested}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    variant="outlined"
+                  />
+                </div>
 
 {/* - - - - - - - - - - - - INPUTS BEGIN HERE - - - - - - - - - - - - - - */}
 
                 <div className="form-group">
-                  <label>Date Repaired:</label>
-                  <TextField type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Date Repaired"
+                    placeholder="MM/DD/YYYY"
+                    margin="normal"
+                    varient="outlined"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
                     />
                 </div>
                 <div className="form-group">
-                  <label>Performed By:</label>
-                  <TextField type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Performed By"
+                    placeholder="Employee Name"
+                    margin="normal"
+                    varient="outlined"
                     value={this.state.performed_by}
                     onChange={this.onChangePerformedBy}
                     />
                 </div>
                 <div className="form-group">
-                  <label>Repairs Performed:</label>
-                  <TextField type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Repairs Performed"
+                    placeholder="Repairs Performed"
+                    margin="normal"
+                    varient="outlined"
                     value={this.state.repairs_performed}
                     onChange={this.onChangeRepairsPerformed}
                     />
                 </div>
+
+{/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
+
                 <div className="form-group">
                   <label>Labor:</label>
                   <div className="form-group">
@@ -256,28 +332,34 @@ export default class CompleteOrder extends Component {
                     </div>
                 </div>
                 <div className="form-group">
-                  <label>Hours:</label>
-                  <TextField type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Hours"
+                    placeholder="Hours"
+                    margin="normal"
+                    varient="outlined"
                     value={this.state.hours}
                     onChange={this.onChangeHours}
                     />
                 </div>
                 <div className="form-group">
-                  <label>Materials:</label>
-                  <TextField type="text"
-                    className="form-control"
+                  <TextField
+                    id="outlined-with-placeholder"
+                    label="Materials Used"
+                    placeholder="Materials Used"
+                    margin="normal"
+                    varient="outlined"
                     value={this.state.materials}
                     onChange={this.onChangeMaterials}
                     />
                 </div>
                 <div className="form-group">
-                  <label>Room:</label>
-                  <TextField 
-                    id="standard-with-placeholder"
+                  <TextField
+                    id="outlined-with-placeholder"
                     label="Room"
                     placeholder="Room"
                     margin="normal"
+                    varient="outlined"
                     value={this.state.room}
                     onChange={this.onChangeRoom}
                     />
