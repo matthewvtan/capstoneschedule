@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+
+const labors = [
+  {
+    value: 'T1',
+    label: 'T1',
+  },
+  {
+    value: 'T2',
+    label: 'T2',
+  },
+  {
+    value: 'T3',
+    label: 'T3',
+  },
+  {
+    value: 'T4',
+    label: 'T4',
+  },
+];
 
 export default class CompleteOrder extends Component {
   
@@ -151,7 +171,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Client Name"
-                    defaultValue={this.state.title}
+                    value={this.state.title}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -163,7 +183,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Phone Number"
-                    defaultValue={this.state.phone}
+                    value={this.state.phone}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -175,7 +195,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Client Email"
-                    defaultValue={this.state.email_address}
+                    value={this.state.email_address}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -187,7 +207,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Job Address"
-                    defaultValue={this.state.job_address}
+                    value={this.state.job_address}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -199,7 +219,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Assignee"
-                    defaultValue={this.state.employee}
+                    value={this.state.employee}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -211,7 +231,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Date / Start Time"
-                    defaultValue={this.state.start}
+                    value={this.state.start}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -223,7 +243,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Est. End Time"
-                    defaultValue={this.state.end}
+                    value={this.state.end}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -235,7 +255,7 @@ export default class CompleteOrder extends Component {
                   <TextField
                     id="outlined-read-only-input"
                     label="Work Requested"
-                    defaultValue={this.state.work_requested}
+                    value={this.state.work_requested}
                     margin="normal"
                     InputProps={{
                       readOnly: true,
@@ -252,7 +272,7 @@ export default class CompleteOrder extends Component {
                     label="Date Repaired"
                     placeholder="MM/DD/YYYY"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
                     />
@@ -263,7 +283,7 @@ export default class CompleteOrder extends Component {
                     label="Performed By"
                     placeholder="Employee Name"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.performed_by}
                     onChange={this.onChangePerformedBy}
                     />
@@ -274,15 +294,35 @@ export default class CompleteOrder extends Component {
                     label="Repairs Performed"
                     placeholder="Repairs Performed"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.repairs_performed}
                     onChange={this.onChangeRepairsPerformed}
                     />
                 </div>
 
 {/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
-
                 <div className="form-group">
+                  <TextField
+                          id="outlined-select-currency"
+                          select
+                          label="Labor"
+                          value={this.state.labor}
+                          onChange={this.onChangeLabor}
+                          SelectProps={{
+                            MenuProps: {},
+                          }}
+                          helperText="Select T1, T2, T3, or T4"
+                          margin="normal"
+                          variant="outlined"
+                        >
+                          {labors.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                    </TextField>
+                  </div>
+                {/* <div className="form-group">
                   <label>Labor:</label>
                   <div className="form-group">
                         <div className="form-check form-check-inline">
@@ -330,14 +370,15 @@ export default class CompleteOrder extends Component {
                             <label className="form-check-label">T4</label>
                         </div>
                     </div>
-                </div>
+                </div> */}
+{/* - - - - - - - - - - - - LABOR INPUT ENDS HERE - - - - - - - - - - - */}
                 <div className="form-group">
                   <TextField
                     id="outlined-with-placeholder"
                     label="Hours"
                     placeholder="Hours"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.hours}
                     onChange={this.onChangeHours}
                     />
@@ -348,7 +389,7 @@ export default class CompleteOrder extends Component {
                     label="Materials Used"
                     placeholder="Materials Used"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.materials}
                     onChange={this.onChangeMaterials}
                     />
@@ -359,11 +400,27 @@ export default class CompleteOrder extends Component {
                     label="Room"
                     placeholder="Room"
                     margin="normal"
-                    varient="outlined"
+                    variant="outlined"
                     value={this.state.room}
                     onChange={this.onChangeRoom}
                     />
                 </div>
+                <div className="form-check">
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.completed}
+                      onChange={this.onChangeCompleted}
+                      value={this.state.completed}
+                      color="primary"
+                    />
+                  }
+                  label="Primary"
+                />
+                </div>
+
+{/* - - - - - BOOTSTRAP INPUT CHECKBOX FOR COMPLETED
+
                 <div className="form-check">
                   <input type="checkbox"
                     className="form-check-input"
@@ -376,7 +433,8 @@ export default class CompleteOrder extends Component {
                   <label className="form-check-label" htmlFor="completedCheckbox">
                   Completed
                   </label>
-                </div>
+                </div> */}
+                
                 <br/>
                 <div className="form-group">
                   <input type="submit" value="Complete Order" className="btn btn-primary" />
