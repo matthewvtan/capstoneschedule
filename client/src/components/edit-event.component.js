@@ -373,6 +373,11 @@ export default class EditEvent extends Component {
                     onChange={this.onChangeWorkRequested}
                     />
                 </div>
+
+                <br />
+                <hr />
+                <br />
+                
                 <div className="form-group">
                       <TextField
                         id="outlined-with-placeholder"
