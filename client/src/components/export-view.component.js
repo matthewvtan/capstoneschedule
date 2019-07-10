@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
  
 import '../App.css';
 
 const Event = props => (
-  <tr>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.title}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.phone}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.job_address}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY hh:mm a")}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.labor}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.hours}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.materials}</td>
-    <td className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</td>
-  </tr>
+  <TableRow>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.title}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.phone}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.job_address}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY hh:mm a")}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.labor}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.hours}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.materials}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.completed ? 'Complete' : 'Incomplete'}</TableCell>
+  </TableRow>
 )
 
 export default class ExportView extends Component {
@@ -64,24 +70,26 @@ export default class ExportView extends Component {
                     sheet="COMPLETED_ORDERS"
                     buttonText="Download as XLS"/>
                 <h3 style={{marginTop: 20}}>Work Orders</h3>
-                <table id="completedOrders" className="table table-responsive table-bordered" style={{ marginTop: 20}}>
-                  <thead>
-                    <tr>
-                      <th>Client Name</th>
-                      <th>Phone</th>
-                      <th>Email Address</th>
-                      <th>Job Address</th>
-                      <th>Date Repaired</th>
-                      <th>Labor</th>
-                      <th>Hours</th>
-                      <th>Materials</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                      { this.eventList() }
-                    </tbody>
-                </table>
+                <Paper>
+                  <Table id="completedOrders" className="table table-responsive table-bordered" style={{ marginTop: 20}}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Client Name</TableCell>
+                        <TableCell>Phone</TableCell>
+                        <TableCell>Email Address</TableCell>
+                        <TableCell>Job Address</TableCell>
+                        <TableCell>Date Repaired</TableCell>
+                        <TableCell>Labor</TableCell>
+                        <TableCell>Hours</TableCell>
+                        <TableCell>Materials</TableCell>
+                        <TableCell>Status</TableCell>
+                      </TableRow>
+                    </TableHead>
+                      <TableBody>
+                        { this.eventList() }
+                      </TableBody>
+                  </Table>
+                </Paper>
             </div>
         )
     }
