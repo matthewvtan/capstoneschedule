@@ -69,13 +69,13 @@ componentDidMount() {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.event.title}
+            Event Title: {this.state.events.title}
           </ModalHeader>
           <ModalBody>
             <div>
               <a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a>
               <br />
-              <p>{this.state.event.title}</p>
+              <p>{this.state.events.title}</p>
             </div>
           </ModalBody>
           <ModalFooter>
