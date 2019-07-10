@@ -6,13 +6,6 @@ export default class CompleteOrder extends Component {
   constructor(props) {
     super(props);
     
-    this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangePhone = this.onChangePhone.bind(this);
-    this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
-    this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
-    this.onChangeStart = this.onChangeStart.bind(this);
-    this.onChangeEnd = this.onChangeEnd.bind(this);
-    this.onChangeWorkRequested = this.onChangeWorkRequested.bind(this);
     this.onChangeDateRepaired = this.onChangeDateRepaired.bind(this);
     this.onChangePerformedBy = this.onChangePerformedBy.bind(this);
     this.onChangeRepairsPerformed = this.onChangeRepairsPerformed.bind(this);
