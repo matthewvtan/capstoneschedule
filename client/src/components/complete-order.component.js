@@ -216,7 +216,7 @@ export default class CompleteOrder extends Component {
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
                     />
-                </TextValidator>
+                </div>
                 <div className="form-group">
                   <label>Performed By:</label>
                   <input type="text"
