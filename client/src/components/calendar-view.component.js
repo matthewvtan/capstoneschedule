@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -12,9 +11,6 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-// const Links = props => (
-// <Link to={"/edit/"+props.links._id} />
-// )
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
@@ -44,21 +40,6 @@ componentDidMount() {
     this.toggle();
     this.setState({ calendarEvent });
   };
-  // componentDidUpdate() {
-  //   axios.get('/events')
-  //     .then(response => {
-  //       this.setState({calendarEvents: response.data})
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     })
-  // }
-
-  // eventLinks() {
-  //   return this.state.calendarEvents.map(function(currentEvent, i) {
-  //     return <Links links={currentEvent} key={i} />
-  //   });
-  // }
 
   render() {
     return (
@@ -104,9 +85,4 @@ componentDidMount() {
       </div>
     );
   }
-
-  // handleEventClick = arg => {
-  //   alert("event id: "+this.state.eventId);
-  //   console.log("Event ID: "+this.state.calendarEvents);
-  // }
 }
