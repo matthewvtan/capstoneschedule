@@ -97,7 +97,7 @@ export default class CompleteOrder extends Component {
       date_repaired: e.target.value
     });
     const { formData } = this.state;
-    formData[event.target.name] = event.target.value;
+    formData[e.target.name] = e.target.value;
     this.setState({ formData });
   }
 
