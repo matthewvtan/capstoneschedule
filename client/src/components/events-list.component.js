@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "@material-ui/styles/MuiThemeProvider";
+// import MuiThemeProvider from "@material-ui/styles/MuiThemeProvider";
 import "../App.css";
 import Table from "./table.component.js";
 import axios from 'axios';
@@ -63,7 +63,7 @@ class EventsList extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider>
         <div className="App">
           <Form
             onSubmit={submission =>
@@ -143,7 +143,7 @@ class EventsList extends Component {
             ]}
           />
         </div>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     );
   }
 }
