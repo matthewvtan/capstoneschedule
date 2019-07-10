@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
 
 const labors = [
   {
@@ -434,7 +437,7 @@ export default class CompleteOrder extends Component {
                   Completed
                   </label>
                 </div> */}
-                
+
                 <br/>
                 <div className="form-group">
                   <input type="submit" value="Complete Order" className="btn btn-primary" />
