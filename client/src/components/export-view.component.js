@@ -17,6 +17,7 @@ const Event = props => (
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.phone}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.email_address}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.job_address}</TableCell>
+    <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.employee}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{moment(props.event.date_repaired).format("MM/DD/YYYY hh:mm a")}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.labor}</TableCell>
     <TableCell className={props.event.completed ? 'completed' : ''}>{props.event.hours}</TableCell>
@@ -78,6 +79,7 @@ export default class ExportView extends Component {
                         <TableCell>Phone</TableCell>
                         <TableCell>Email Address</TableCell>
                         <TableCell>Job Address</TableCell>
+                        <TableCell>Assignee</TableCell>
                         <TableCell>Date Repaired</TableCell>
                         <TableCell>Labor</TableCell>
                         <TableCell>Hours</TableCell>
