@@ -151,7 +151,7 @@ export default class CreateEvent extends Component {
         return (
           <div className="form-container" style={{margin: 30}}>
             <h3>Create New Event</h3>
-              <Paper style={{paddingBottom: 30}}>
+              <Paper style={{padding: 30}}>
                 <form onSubmit={this.onSubmit} style={{margin: 20}}>
 
                 <div className="form-group">
