@@ -170,7 +170,7 @@ export default class CompleteOrder extends Component {
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
                 <Paper>
-                  <form onSubmit={this.onSubmit}>
+                  <form onSubmit={this.onSubmit} style={{margin: 20}}>
                     <div className="form-group">
                       <TextField
                         id="outlined-read-only-input"
@@ -419,7 +419,7 @@ export default class CompleteOrder extends Component {
                           color="primary"
                         />
                       }
-                      label="Primary"
+                      label="Completed"
                     />
                     </div>
 

@@ -4,6 +4,7 @@ import "../App.css";
 // import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 
 export default class CreateEvent extends Component {
   
@@ -148,9 +149,10 @@ export default class CreateEvent extends Component {
     
     render() {
         return (
-            <div className="form-container" style={{margin: 30}}>
-              <h3>Create New Event</h3>
-                <form onSubmit={this.onSubmit}>
+          <div className="form-container" style={{margin: 30}}>
+            <h3>Create New Event</h3>
+              <Paper>
+                <form onSubmit={this.onSubmit} style={{margin: 20}}>
 
                 <div className="form-group">
                       <TextField
@@ -277,7 +279,8 @@ export default class CreateEvent extends Component {
 
                   <input type="submit" value="Create Work Order" className="btn btn-primary" />
                 </form>
-            </div>
+              </Paper>
+          </div>
         )
     }
 }
