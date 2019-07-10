@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+// import { makeStyles } from '@material-ui/core/styles';
+// import TextField from '@material-ui/core/TextField';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     width: '100%',
+//     marginTop: theme.spacing(3),
+//     overflowX: 'auto',
+//   },
+//   table: {
+//     minWidth: 650,
+//   },
+// }));
 
 export default class CompleteOrder extends Component {
-  const classes = useStyles();
-
   constructor(props) {
     super(props);
     
