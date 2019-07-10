@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
- 
 import '../App.css';
 
 const Event = props => (
@@ -62,7 +61,7 @@ export default class ExportView extends Component {
     
     render() {
         return (
-            <div>
+            <div style={{margin: 20}}>
               <ReactHTMLTableToExcel
                     id="test-table-xls-button"
                     className="download-table-xls-button"
