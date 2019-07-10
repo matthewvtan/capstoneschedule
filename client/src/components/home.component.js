@@ -9,7 +9,7 @@ export default class Home extends Component {
         return (
             <div className="button-container">
                 <div>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="blue">
                         <Link to="/list" className="nav-link">List</Link>
                     </Button>
                 </div>
@@ -18,7 +18,7 @@ export default class Home extends Component {
                 </a> */}
                 <br /><br />
                 <div>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="blue">
                         <Link to="/create" className="nav-link">New Work Order</Link>
                     </Button>
                 </div>
@@ -27,7 +27,7 @@ export default class Home extends Component {
                 </a> */}
                 <br /><br />
                 <div>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="blue">
                         <Link to="/calendar" className="nav-link">Calendar</Link>
                     </Button>
                 </div>
@@ -36,7 +36,7 @@ export default class Home extends Component {
                 </a> */}
                 <br /><br />
                 <div>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="blue">
                     <Link to="/export" className="nav-link">Export</Link>
                 </Button>
                 </div>
