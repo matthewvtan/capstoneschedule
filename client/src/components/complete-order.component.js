@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing(3),
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 650,
+  },
+}));
 
 export default class CompleteOrder extends Component {
-  
+  const classes = useStyles();
+
   constructor(props) {
     super(props);
     
@@ -152,7 +167,11 @@ export default class CompleteOrder extends Component {
         return (
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
-              <form onSubmit={this.onSubmit}>
+              <ValidatorForm 
+                onSubmit={this.onSubmit}
+                ref="form"
+                onError={error => console.log(errors)}
+                >
                   <div className="inactive">
                     <div className="form-group">
                     <label>Client Name:</label>
@@ -165,12 +184,10 @@ export default class CompleteOrder extends Component {
                     <div className="form-group">
                     <label>Email Address:</label>
                     <p>{this.state.email_address}</p>
-
                     </div>
                     <div className="form-group">
                     <label>Job Address:</label>
                     <p>{this.state.job_address}</p>
-
                     </div>
                     <div className="form-group">
                     <label>Start:</label>
@@ -185,14 +202,21 @@ export default class CompleteOrder extends Component {
                     <p>{this.state.workRequested}</p>
                     </div>
                   </div>
+
+{/* - - - - - - - - - - - FORM INPUTS BEGIN HERE - - - - - - - - - - - - - */}
+
                 <div className="form-group">
                   <label>Date Repaired:</label>
-                  <input type="text"
-                    className="form-control"
+                  <TextValidator 
+                    id="standard-with-placeholder"
+                    label="Date Repaired"
+                    placeholder="MM/DD/YYYY"
+                    className={classes.textField}
+                    margin="normal"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
                     />
-                </div>
+                </TextValidator>
                 <div className="form-group">
                   <label>Performed By:</label>
                   <input type="text"
@@ -299,8 +323,175 @@ export default class CompleteOrder extends Component {
                 <div className="form-group">
                   <input type="submit" value="Complete Order" className="btn btn-primary" />
                 </div>
-              </form>
+              </ValidatorForm>
             </div>
         )
     }
 }
+
+
+
+
+
+
+
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - PASTE @ LINE 166
+
+// render() {
+//   return (
+//       <div className="form-container" style={{margin: 30}}>
+//         <h3>Complete Order</h3>
+//         <form onSubmit={this.onSubmit}>
+//             <div className="inactive">
+//               <div className="form-group">
+//               <label>Client Name:</label>
+//               <p>{this.state.title}</p>
+//               </div>
+//               <div className="form-group">
+//               <label>Phone:</label>
+//               <p>{this.state.phone}</p>
+//               </div>
+//               <div className="form-group">
+//               <label>Email Address:</label>
+//               <p>{this.state.email_address}</p>
+
+//               </div>
+//               <div className="form-group">
+//               <label>Job Address:</label>
+//               <p>{this.state.job_address}</p>
+
+//               </div>
+//               <div className="form-group">
+//               <label>Start:</label>
+//               <p>{this.state.start}</p>
+//               </div>
+//               <div className="form-group">
+//               <label>End:</label>
+//               <p>{this.state.end}</p>
+//               </div>
+//               <div className="form-group">
+//               <label>Work Requested:</label>
+//               <p>{this.state.workRequested}</p>
+//               </div>
+//             </div>
+//           <div className="form-group">
+//             <label>Date Repaired:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.date_repaired}
+//               onChange={this.onChangeDateRepaired}
+//               />
+//           </div>
+//           <div className="form-group">
+//             <label>Performed By:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.performed_by}
+//               onChange={this.onChangePerformedBy}
+//               />
+//           </div>
+//           <div className="form-group">
+//             <label>Repairs Performed:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.repairs_performed}
+//               onChange={this.onChangeRepairsPerformed}
+//               />
+//           </div>
+//           <div className="form-group">
+//             <label>Labor:</label>
+//             <div className="form-group">
+//                   <div className="form-check form-check-inline">
+//                       <input  className="form-check-input" 
+//                               type="radio" 
+//                               name="priorityOptions" 
+//                               id="laborT1" 
+//                               value="T1"
+//                               checked={this.state.labor==='T1'} 
+//                               onChange={this.onChangeLabor}
+//                               />
+//                       <label className="form-check-label">T1</label>
+//                   </div>
+//                   <div className="form-check form-check-inline">
+//                       <input  className="form-check-input" 
+//                               type="radio" 
+//                               name="priorityOptions" 
+//                               id="laborT2" 
+//                               value="T2" 
+//                               checked={this.state.labor==='T2'} 
+//                               onChange={this.onChangeLabor}
+//                               />
+//                       <label className="form-check-label">T2</label>
+//                   </div>
+//                   <div className="form-check form-check-inline">
+//                       <input  className="form-check-input" 
+//                               type="radio" 
+//                               name="laborOptions" 
+//                               id="laborT3" 
+//                               value="T3" 
+//                               checked={this.state.labor==='T3'} 
+//                               onChange={this.onChangeLabor}
+//                               />
+//                       <label className="form-check-label">T3</label>
+//                   </div>
+//                   <div className="form-check form-check-inline">
+//                       <input  className="form-check-input" 
+//                               type="radio" 
+//                               name="laborOptions" 
+//                               id="laborT4" 
+//                               value="T4" 
+//                               checked={this.state.labor==='T4'} 
+//                               onChange={this.onChangeLabor}
+//                               />
+//                       <label className="form-check-label">T4</label>
+//                   </div>
+//               </div>
+//           </div>
+//           <div className="form-group">
+//             <label>Hours:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.hours}
+//               onChange={this.onChangeHours}
+//               />
+//           </div>
+//           <div className="form-group">
+//             <label>Materials:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.materials}
+//               onChange={this.onChangeMaterials}
+//               />
+//           </div>
+//           <div className="form-group">
+//             <label>Room:</label>
+//             <input type="text"
+//               className="form-control"
+//               value={this.state.room}
+//               onChange={this.onChangeRoom}
+//               />
+//           </div>
+//           <div className="form-check">
+//             <input type="checkbox"
+//               className="form-check-input"
+//               id="completedCheckbox"
+//               name="completedCheckbox"
+//               onChange={this.onChangeCompleted}
+//               checked={this.state.completed}
+//               value={this.state.completed}
+//               />
+//             <label className="form-check-label" htmlFor="completedCheckbox">
+//             Completed
+//             </label>
+//           </div>
+//           <br/>
+//           <div className="form-group">
+//             <input type="submit" value="Complete Order" className="btn btn-primary" />
+//           </div>
+//         </form>
+//       </div>
+//   )
+// }
+// }
