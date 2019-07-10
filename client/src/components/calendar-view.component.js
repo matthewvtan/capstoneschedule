@@ -18,14 +18,14 @@ export default class CalendarView extends React.Component {
   state = {
     modal: false,
     calendarWeekends: true,
-    event: []
+    events: []
   };
       
 componentDidMount() {
     axios.get('/events')
       .then(response => {
-        this.setState({event: response.data})
-        console.log({calendarEvents: response.data})
+        this.setState({events: response.data})
+        console.log({events: response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -55,7 +55,7 @@ componentDidMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events={this.state.event}
+            events={this.state.events}
             eventClick={this.handleEventClick}
             nowIndicator='true'
             height='parent'
