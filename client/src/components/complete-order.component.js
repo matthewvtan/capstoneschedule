@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import Paper from '@material-ui/core/Paper';
 
 const labors = [
   {
@@ -169,280 +169,282 @@ export default class CompleteOrder extends Component {
         return (
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
-              <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Client Name"
-                    value={this.state.title}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Phone Number"
-                    value={this.state.phone}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Client Email"
-                    value={this.state.email_address}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Job Address"
-                    value={this.state.job_address}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Assignee"
-                    value={this.state.employee}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Date / Start Time"
-                    value={this.state.start}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Est. End Time"
-                    value={this.state.end}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-read-only-input"
-                    label="Work Requested"
-                    value={this.state.work_requested}
-                    margin="normal"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-
-{/* - - - - - - - - - - - - INPUTS BEGIN HERE - - - - - - - - - - - - - - */}
-
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Date Repaired"
-                    placeholder="MM/DD/YYYY"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.date_repaired}
-                    onChange={this.onChangeDateRepaired}
-                    />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Performed By"
-                    placeholder="Employee Name"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.performed_by}
-                    onChange={this.onChangePerformedBy}
-                    />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Repairs Performed"
-                    placeholder="Repairs Performed"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.repairs_performed}
-                    onChange={this.onChangeRepairsPerformed}
-                    />
-                </div>
-
-{/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
-                <div className="form-group">
-                  <TextField
-                          id="outlined-select-currency"
-                          select
-                          label="Labor"
-                          value={this.state.labor}
-                          onChange={this.onChangeLabor}
-                          SelectProps={{
-                            MenuProps: {},
-                          }}
-                          helperText="Select T1, T2, T3, or T4"
-                          margin="normal"
-                          variant="outlined"
-                        >
-                          {labors.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                    </TextField>
-                  </div>
-                {/* <div className="form-group">
-                  <label>Labor:</label>
-                  <div className="form-group">
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="priorityOptions" 
-                                    id="laborT1" 
-                                    value="T1"
-                                    checked={this.state.labor==='T1'} 
-                                    onChange={this.onChangeLabor}
-                                    />
-                            <label className="form-check-label">T1</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="priorityOptions" 
-                                    id="laborT2" 
-                                    value="T2" 
-                                    checked={this.state.labor==='T2'} 
-                                    onChange={this.onChangeLabor}
-                                    />
-                            <label className="form-check-label">T2</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="laborOptions" 
-                                    id="laborT3" 
-                                    value="T3" 
-                                    checked={this.state.labor==='T3'} 
-                                    onChange={this.onChangeLabor}
-                                    />
-                            <label className="form-check-label">T3</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="laborOptions" 
-                                    id="laborT4" 
-                                    value="T4" 
-                                    checked={this.state.labor==='T4'} 
-                                    onChange={this.onChangeLabor}
-                                    />
-                            <label className="form-check-label">T4</label>
-                        </div>
+                <Paper>
+                  <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Client Name"
+                        value={this.state.title}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
                     </div>
-                </div> */}
-{/* - - - - - - - - - - - - LABOR INPUT ENDS HERE - - - - - - - - - - - */}
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Hours"
-                    placeholder="Hours"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.hours}
-                    onChange={this.onChangeHours}
-                    />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Materials Used"
-                    placeholder="Materials Used"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.materials}
-                    onChange={this.onChangeMaterials}
-                    />
-                </div>
-                <div className="form-group">
-                  <TextField
-                    id="outlined-with-placeholder"
-                    label="Room"
-                    placeholder="Room"
-                    margin="normal"
-                    variant="outlined"
-                    value={this.state.room}
-                    onChange={this.onChangeRoom}
-                    />
-                </div>
-                <div className="form-check">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.completed}
-                      onChange={this.onChangeCompleted}
-                      value={this.state.completed}
-                      color="primary"
-                    />
-                  }
-                  label="Primary"
-                />
-                </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Phone Number"
+                        value={this.state.phone}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Client Email"
+                        value={this.state.email_address}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Job Address"
+                        value={this.state.job_address}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Assignee"
+                        value={this.state.employee}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Date / Start Time"
+                        value={this.state.start}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Est. End Time"
+                        value={this.state.end}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Work Requested"
+                        value={this.state.work_requested}
+                        margin="normal"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
 
-{/* - - - - - BOOTSTRAP INPUT CHECKBOX FOR COMPLETED
+    {/* - - - - - - - - - - - - INPUTS BEGIN HERE - - - - - - - - - - - - - - */}
 
-                <div className="form-check">
-                  <input type="checkbox"
-                    className="form-check-input"
-                    id="completedCheckbox"
-                    name="completedCheckbox"
-                    onChange={this.onChangeCompleted}
-                    checked={this.state.completed}
-                    value={this.state.completed}
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Date Repaired"
+                        placeholder="MM/DD/YYYY"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.date_repaired}
+                        onChange={this.onChangeDateRepaired}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Performed By"
+                        placeholder="Employee Name"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.performed_by}
+                        onChange={this.onChangePerformedBy}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Repairs Performed"
+                        placeholder="Repairs Performed"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.repairs_performed}
+                        onChange={this.onChangeRepairsPerformed}
+                        />
+                    </div>
+
+    {/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
+                    <div className="form-group">
+                      <TextField
+                              id="outlined-select-currency"
+                              select
+                              label="Labor"
+                              value={this.state.labor}
+                              onChange={this.onChangeLabor}
+                              SelectProps={{
+                                MenuProps: {},
+                              }}
+                              helperText="Select T1, T2, T3, or T4"
+                              margin="normal"
+                              variant="outlined"
+                            >
+                              {labors.map(option => (
+                                <MenuItem key={option.value} value={option.value}>
+                                  {option.label}
+                                </MenuItem>
+                              ))}
+                        </TextField>
+                      </div>
+                    {/* <div className="form-group">
+                      <label>Labor:</label>
+                      <div className="form-group">
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="priorityOptions" 
+                                        id="laborT1" 
+                                        value="T1"
+                                        checked={this.state.labor==='T1'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T1</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="priorityOptions" 
+                                        id="laborT2" 
+                                        value="T2" 
+                                        checked={this.state.labor==='T2'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T2</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="laborOptions" 
+                                        id="laborT3" 
+                                        value="T3" 
+                                        checked={this.state.labor==='T3'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T3</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="laborOptions" 
+                                        id="laborT4" 
+                                        value="T4" 
+                                        checked={this.state.labor==='T4'} 
+                                        onChange={this.onChangeLabor}
+                                        />
+                                <label className="form-check-label">T4</label>
+                            </div>
+                        </div>
+                    </div> */}
+    {/* - - - - - - - - - - - - LABOR INPUT ENDS HERE - - - - - - - - - - - */}
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Hours"
+                        placeholder="Hours"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.hours}
+                        onChange={this.onChangeHours}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Materials Used"
+                        placeholder="Materials Used"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.materials}
+                        onChange={this.onChangeMaterials}
+                        />
+                    </div>
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Room"
+                        placeholder="Room"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.room}
+                        onChange={this.onChangeRoom}
+                        />
+                    </div>
+                    <div className="form-check">
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.completed}
+                          onChange={this.onChangeCompleted}
+                          value={this.state.completed}
+                          color="primary"
+                        />
+                      }
+                      label="Primary"
                     />
-                  <label className="form-check-label" htmlFor="completedCheckbox">
-                  Completed
-                  </label>
-                </div> */}
+                    </div>
 
-                <br/>
-                <div className="form-group">
-                  <input type="submit" value="Complete Order" className="btn btn-primary" />
-                </div>
-              </form>
+    {/* - - - - - BOOTSTRAP INPUT CHECKBOX FOR COMPLETED
+
+                    <div className="form-check">
+                      <input type="checkbox"
+                        className="form-check-input"
+                        id="completedCheckbox"
+                        name="completedCheckbox"
+                        onChange={this.onChangeCompleted}
+                        checked={this.state.completed}
+                        value={this.state.completed}
+                        />
+                      <label className="form-check-label" htmlFor="completedCheckbox">
+                      Completed
+                      </label>
+                    </div> */}
+
+                    <br/>
+                    <div className="form-group">
+                      <input type="submit" value="Complete Order" className="btn btn-primary" />
+                    </div>
+                  </form>
+                </Paper>
             </div>
         )
     }
