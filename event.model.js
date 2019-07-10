@@ -14,6 +14,9 @@ let Event = new Schema({
     job_address: {
         type: String
     },
+    employee: {
+        type: String
+    },
     start: {
         type: String
     },

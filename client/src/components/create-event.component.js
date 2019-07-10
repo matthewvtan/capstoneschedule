@@ -13,6 +13,7 @@ export default class CreateEvent extends Component {
       this.onChangePhone = this.onChangePhone.bind(this);
       this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
       this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
+      this.onChangeEmployee = this.onChangeJobAddress.bind(this);
       this.onChangeStart = this.onChangeStart.bind(this);
       this.onChangeEnd = this.onChangeEnd.bind(this);
       this.onChangeWorkRequested = this.onChangeWorkRequested.bind(this);
@@ -24,6 +25,7 @@ export default class CreateEvent extends Component {
         phone:'',
         email_address: '',
         job_address:'',
+        employee:'',
         start:'',
         end: '',
         work_requested: '',
@@ -62,6 +64,12 @@ export default class CreateEvent extends Component {
     });
     }
 
+    onChangeEmployee(e) {
+      this.setState({
+        employee: e.target.value
+      });
+    }
+
     onChangeStart(date) {
     this.setState({
         start: date
@@ -88,6 +96,7 @@ export default class CreateEvent extends Component {
       console.log(`Phone: ${this.state.phone}`);
       console.log(`Email Address: ${this.state.email_address}`);
       console.log(`Job Address: ${this.state.job_address}`);
+      console.log(`Employee: ${this.state.employee}`);
       console.log(`Start: ${this.state.start}`);
       console.log(`End: ${this.state.end}`);
       console.log(`Work Requested: ${this.state.work_requested}`);
@@ -97,6 +106,7 @@ export default class CreateEvent extends Component {
         phone: this.state.phone,
         email_address: this.state.email_address,
         job_address: this.state.job_address,
+        employee: this.state.employee,
         start: this.state.start,
         end: this.state.end,
         work_requested: this.state.work_requested,
@@ -120,6 +130,7 @@ export default class CreateEvent extends Component {
         phone: '',
         email_address:'',
         job_address:'',
+        employee:'',
         start:'',
         end:'',
         work_requested:'',
@@ -160,6 +171,12 @@ export default class CreateEvent extends Component {
                   <div className="form-group">
                     <label>Job Address: </label>
                     <input type="text" className="form-control" placeholder="Job Address" value={this.state.job_address} onChange={this.onChangeJobAddress}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Assignee: </label>
+                    <input type="text" className="form-control" placeholder="Employee Name" value={this.state.employee} onChange={this.onChangeEmployee}
                     />
                   </div>
 

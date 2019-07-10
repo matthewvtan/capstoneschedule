@@ -10,6 +10,7 @@ export default class EditEvent extends Component {
     this.onChangePhone = this.onChangePhone.bind(this);
     this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
     this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
+    this.onChangeEmployee = this.onChangeEmployee.bind(this);
     this.onChangeStart = this.onChangeStart.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
     this.onChangeWorkRequested = this.onChangeWorkRequested.bind(this);
@@ -29,6 +30,7 @@ export default class EditEvent extends Component {
         phone:'',
         email_address: '',
         job_address:'',
+        employee:'',
         start:'',
         end: '',
         work_requested: '',
@@ -51,6 +53,7 @@ export default class EditEvent extends Component {
           phone: response.data.phone,
           email_address: response.data.email_address,
           job_address: response.data.job_address,
+          employee: response.data.employee,
           start: response.data.start,
           end: response.data.end,
           work_requested: response.data.work_requested,
@@ -90,6 +93,12 @@ export default class EditEvent extends Component {
   onChangeJobAddress(e) {
     this.setState({
       job_address: e.target.value
+    });
+  }
+
+  onChangeEmployee(e) {
+    this.setState({
+      employee: e.target.value
     });
   }
 
@@ -166,6 +175,7 @@ export default class EditEvent extends Component {
       phone: this.state.phone,
       email_address: this.state.email_address,
       job_address: this.state.job_address,
+      employee: this.state.employee,
       start: this.state.start,
       end: this.state.end,
       work_requested: this.state.work_requested,
@@ -219,6 +229,14 @@ export default class EditEvent extends Component {
                     className="form-control"
                     value={this.state.job_address}
                     onChange={this.onChangeJobAddress}
+                    />
+                </div>
+                <div className="form-group">
+                  <label>Assignee:</label>
+                  <input type="text"
+                    className="form-control"
+                    value={this.state.employee}
+                    onChange={this.onChangeEmployee}
                     />
                 </div>
                 <div className="form-group">
