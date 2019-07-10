@@ -13,7 +13,7 @@ export default class CreateEvent extends Component {
       this.onChangePhone = this.onChangePhone.bind(this);
       this.onChangeEmailAddress = this.onChangeEmailAddress.bind(this);
       this.onChangeJobAddress = this.onChangeJobAddress.bind(this);
-      this.onChangeEmployee = this.onChangeJobAddress.bind(this);
+      this.onChangeEmployee = this.onChangeEmployee.bind(this);
       this.onChangeStart = this.onChangeStart.bind(this);
       this.onChangeEnd = this.onChangeEnd.bind(this);
       this.onChangeWorkRequested = this.onChangeWorkRequested.bind(this);
