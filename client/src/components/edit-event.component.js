@@ -308,7 +308,7 @@ export default class EditEvent extends Component {
                   }}
                 />
                 </div> */}
-
+{/* 
               <div className="form-group">
                 <label>Date: </label><br />
                 <DatePicker dateFormat="yyyy/MM/dd h:mm a"
@@ -336,7 +336,30 @@ export default class EditEvent extends Component {
                             value={this.state.end} 
                             onChange={this.onChangeEnd}
                 />
-              </div>
+              </div> */}
+
+                <div className="form-group">
+                    <TextField
+                      id="outlined-with-placeholder"
+                      label="Date / Start Time"
+                      placeholder="MM/DD/YYYY HH:MM"
+                      margin="normal"
+                      variant="outlined"
+                      value={this.state.start}
+                      onChange={this.onChangeStart}
+                      />
+                </div>
+                <div className="form-group">
+                    <TextField
+                      id="outlined-with-placeholder"
+                      label="End Time"
+                      placeholder="HH:MM"
+                      margin="normal"
+                      variant="outlined"
+                      value={this.state.end}
+                      onChange={this.onChangeEnd}
+                      />
+                </div>
 
                 <div className="form-group">
                   <TextField
