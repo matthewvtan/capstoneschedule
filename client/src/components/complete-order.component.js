@@ -60,7 +60,13 @@ export default class CompleteOrder extends Component {
         room: '',
         completed: false,
         formData: {
-          date_repaired: ''
+          date_repaired: '',
+          performed_by: '',
+          repairs_performed: '',
+          labor: '',
+          hours: '',
+          materials: '',
+          room: ''
       },
         submitted: false
     }
@@ -105,42 +111,63 @@ export default class CompleteOrder extends Component {
     this.setState({
       performed_by: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeRepairsPerformed(e) {
     this.setState({
       repairs_performed: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeLabor(e) {
     this.setState({
       labor: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeHours(e) {
     this.setState({
       hours: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeMaterials(e) {
     this.setState({
       materials: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeRoom(e) {
     this.setState({
       room: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
 
   onChangeCompleted(e) {
     this.setState({
       completed: !this.state.completed
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
   }
   
   onSubmit(e) {
@@ -283,9 +310,10 @@ export default class CompleteOrder extends Component {
                         variant="outlined"
                       />
                     </div>
-
+<br />
     {/* - - - - - - - - - - - - INPUTS BEGIN HERE - - - - - - - - - - - - - - */}
-
+<hr />
+<br />
                     <div className="form-group">
                       <TextValidator
                         id="outlined-with-placeholder"
@@ -301,36 +329,46 @@ export default class CompleteOrder extends Component {
                         onChange={this.onChangeDateRepaired}
                         />
                     </div>
+
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Performed By"
                         placeholder="Employee Name"
                         margin="normal"
+                        name="performed_by"
                         variant="outlined"
-                        value={this.state.performed_by}
+                        value={formData.performed_by}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangePerformedBy}
                         />
                     </div>
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Repairs Performed"
                         placeholder="Repairs Performed"
                         margin="normal"
+                        name="repairs_performed"
                         variant="outlined"
-                        value={this.state.repairs_performed}
+                        value={formData.repairs_performed}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeRepairsPerformed}
                         />
                     </div>
 
     {/* - - - - - - - - - - - - - - - LABOR INPUT RADIO BUTTONS - - - - - - - - - - - - */}
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                               id="outlined-select-currency"
                               select
                               label="Labor"
-                              value={this.state.labor}
+                              name="labor"
+                              value={formData.labor}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
                               onChange={this.onChangeLabor}
                               SelectProps={{
                                 MenuProps: {},
@@ -344,7 +382,7 @@ export default class CompleteOrder extends Component {
                                   {option.label}
                                 </MenuItem>
                               ))}
-                        </TextField>
+                        </TextValidator>
                       </div>
                     {/* <div className="form-group">
                       <label>Labor:</label>
@@ -396,39 +434,49 @@ export default class CompleteOrder extends Component {
                         </div>
                     </div> */}
     {/* - - - - - - - - - - - - LABOR INPUT ENDS HERE - - - - - - - - - - - */}
-                    <div className="form-group">
-                      <TextField
+                   <div className="form-group">
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Hours"
                         placeholder="Hours"
                         margin="normal"
+                        name="hours"
                         variant="outlined"
-                        value={this.state.hours}
+                        value={formData.hours}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeHours}
                         />
                     </div>
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Materials Used"
                         placeholder="Materials Used"
                         margin="normal"
+                        name="materials"
                         variant="outlined"
-                        value={this.state.materials}
+                        value={formData.materials}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeMaterials}
                         />
                     </div>
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Room"
                         placeholder="Room"
                         margin="normal"
+                        name="room"
                         variant="outlined"
-                        value={this.state.room}
+                        value={formData.room}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeRoom}
                         />
                     </div>
+                    
                     <div className="form-check">
                     <FormControlLabel
                       control={
