@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { makeStyles } from '@material-ui/core/styles';
 // import TextField from '@material-ui/core/TextField';
+import { ThemeProvider, makeStyles } from '@material-ui/styles';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 // const useStyles = makeStyles(theme => ({
@@ -15,7 +16,7 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 //   },
 // }));
 
-export default class CompleteOrder extends Component {
+class CompleteOrder extends Component {
   constructor(props) {
     super(props);
     
@@ -209,7 +210,6 @@ export default class CompleteOrder extends Component {
                     id="standard-with-placeholder"
                     label="Date Repaired"
                     placeholder="MM/DD/YYYY"
-                    className={classes.textField}
                     margin="normal"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
@@ -326,6 +326,8 @@ export default class CompleteOrder extends Component {
         )
     }
 }
+
+export default withStyles({ withTheme: true })(CompleteOrder);
 
 
 
