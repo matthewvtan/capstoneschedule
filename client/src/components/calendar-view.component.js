@@ -36,9 +36,9 @@ componentDidMount() {
     this.setState({ modal: !this.state.modal });
   };
 
-  handleEventClick = ({ calendarEvent, el }) => {
+  handleEventClick = ({ calendarEvents, el }) => {
     this.toggle();
-    this.setState({ calendarEvent });
+    this.setState({ calendarEvents });
   };
 
   render() {
@@ -64,7 +64,7 @@ componentDidMount() {
           <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
-          className={this.props.className}
+          // className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
             Event Title
