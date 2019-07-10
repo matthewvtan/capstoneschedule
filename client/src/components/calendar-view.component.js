@@ -69,17 +69,15 @@ componentDidMount() {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title: {this.state.events.title}
           </ModalHeader>
           <ModalBody>
             <div>
-              <a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a>
+              <p>To see information for this Work Order, please view the full Order List below.</p>
               <br />
-              <p>{this.state.events.title}</p>
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary">Complete</Button>{" "}
+            <Button color="primary"><a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
