@@ -69,7 +69,7 @@ componentDidMount() {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            Event Title
+            Event Title: {this.state.events.title}
           </ModalHeader>
           <ModalBody>
             <div>

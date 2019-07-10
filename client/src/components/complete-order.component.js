@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
 
 export default class CompleteOrder extends Component {
   
@@ -183,7 +184,7 @@ export default class CompleteOrder extends Component {
 
                 <div className="form-group">
                   <label>Date Repaired:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
@@ -191,7 +192,7 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Performed By:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.performed_by}
                     onChange={this.onChangePerformedBy}
@@ -199,7 +200,7 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Repairs Performed:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.repairs_performed}
                     onChange={this.onChangeRepairsPerformed}
@@ -256,7 +257,7 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Hours:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.hours}
                     onChange={this.onChangeHours}
@@ -264,7 +265,7 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Materials:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.materials}
                     onChange={this.onChangeMaterials}
@@ -272,8 +273,11 @@ export default class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Room:</label>
-                  <input type="text"
-                    className="form-control"
+                  <TextField 
+                    id="standard-with-placeholder"
+                    label="Room"
+                    placeholder="Room"
+                    margin="normal"
                     value={this.state.room}
                     onChange={this.onChangeRoom}
                     />
