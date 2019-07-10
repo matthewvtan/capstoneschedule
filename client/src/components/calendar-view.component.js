@@ -58,13 +58,11 @@ componentDidMount() {
             events={this.state.event}
             eventClick={this.handleEventClick}
             nowIndicator='true'
-            navLinks={true}
             height='parent'
           />
           <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
-          // className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
             Event Title
@@ -75,7 +73,7 @@ componentDidMount() {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary">Do Something</Button>{" "}
+            <Button color="primary">Complete</Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
