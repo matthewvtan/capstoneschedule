@@ -211,7 +211,7 @@ export default class CreateEvent extends Component {
                       onChange={this.onChangeEmployee}
                       />
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <TextField
                       id="datetime-local"
                       label="Date/Start Time"
@@ -234,8 +234,8 @@ export default class CreateEvent extends Component {
                         shrink: true,
                       }}
                     />
-                    </div>
-{/* 
+                    </div> */}
+
                   <div className="form-group">
                     <label>Date: </label><br />
                     <DatePicker dateFormat="yyyy/MM/dd h:mm a"
@@ -256,7 +256,7 @@ export default class CreateEvent extends Component {
                                 selected={this.state.end}
                                 showTimeSelect
                                 showTimeSelectOnly
-                                timeIntervals={15}
+                                timeIntervals={30}
                                 dateFormat="h:mm aa"
                                 timeCaption="End"
                                 className="form-control"
@@ -264,7 +264,7 @@ export default class CreateEvent extends Component {
                                 onChange={this.onChangeEnd}
                     />
                   </div>
- */}
+ 
                     <div className="form-group">
                       <TextField
                         id="outlined-with-placeholder"
