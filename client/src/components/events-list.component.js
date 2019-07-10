@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import "./App.css";
+import "../App.css";
 import Table from "./table.component.js";
 import axios from 'axios';
 import orderBy from 'lodash/orderBy';
