@@ -56,7 +56,11 @@ export default class CompleteOrder extends Component {
         hours: '',
         materials: '',
         room: '',
-        completed: false
+        completed: false,
+        formData: {
+          date_repaired: ''
+      },
+        submitted: false
     }
   }
   
@@ -86,16 +90,13 @@ export default class CompleteOrder extends Component {
       })
   }
 
-  onChangeWorkRequested(e) {
-    this.setState({
-      work_requested: e.target.value
-    });
-  }
-
   onChangeDateRepaired(e) {
     this.setState({
       date_repaired: e.target.value
     });
+    const { formData } = this.state;
+    formData[event.target.name] = event.target.value;
+    this.setState({ formData });
   }
 
   onChangePerformedBy(e) {
@@ -163,17 +164,23 @@ export default class CompleteOrder extends Component {
       .then(res => console.log(res.data));
       
     this.props.history.push('/');
+
+    this.setState({ submitted: true }, () => {
+      setTimeout(() => this.setState({ submitted: false }), 5000);
+  });
   }
   
     render() {
+      const { formData, submitted } = this.state;
         return (
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
                 <Paper style={{padding: 30}}>
-                  <form onSubmit={this.onSubmit} style={{margin: 20}}>
+                  <ValidatorForm ref="form" onSubmit={this.onSubmit} style={{margin: 20}}>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Client Name"
                         value={this.state.title}
                         margin="normal"
@@ -185,7 +192,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Phone Number"
                         value={this.state.phone}
                         margin="normal"
@@ -197,7 +205,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Client Email"
                         value={this.state.email_address}
                         margin="normal"
@@ -209,7 +218,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Job Address"
                         value={this.state.job_address}
                         margin="normal"
@@ -221,7 +231,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Assignee"
                         value={this.state.employee}
                         margin="normal"
@@ -233,7 +244,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Date / Start Time"
                         value={this.state.start}
                         margin="normal"
@@ -245,7 +257,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Est. End Time"
                         value={this.state.end}
                         margin="normal"
@@ -257,7 +270,8 @@ export default class CompleteOrder extends Component {
                     </div>
                     <div className="form-group">
                       <TextField
-                        id="outlined-read-only-input"
+                        disabled
+                        id="outlined-disabled"
                         label="Work Requested"
                         value={this.state.work_requested}
                         margin="normal"
@@ -271,13 +285,17 @@ export default class CompleteOrder extends Component {
     {/* - - - - - - - - - - - - INPUTS BEGIN HERE - - - - - - - - - - - - - - */}
 
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Date Repaired"
                         placeholder="MM/DD/YYYY"
                         margin="normal"
+                        name="date_repaired"
                         variant="outlined"
-                        value={this.state.date_repaired}
+                        value={formData.date_repaired}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
+                        // value={this.state.date_repaired}
                         onChange={this.onChangeDateRepaired}
                         />
                     </div>
@@ -440,10 +458,21 @@ export default class CompleteOrder extends Component {
                     </div> */}
 
                     <br/>
-                    <div className="form-group">
+                    <Button
+                    color="primary"
+                    variant="contained"
+                    type="submit"
+                    disabled={submitted}
+                >
+                    {
+                        (submitted && 'Your form is submitted!')
+                        || (!submitted && 'Submit')
+                    }
+                </Button>
+                    {/* <div className="form-group">
                       <input type="submit" value="Complete Order" className="btn btn-primary" />
-                    </div>
-                  </form>
+                    </div> */}
+                  </ValidatorForm>
                 </Paper>
             </div>
         )
