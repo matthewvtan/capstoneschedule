@@ -5,8 +5,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 
 const labors = [
   {
