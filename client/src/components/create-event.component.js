@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import "../App.css";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TextField from '@material-ui/core/TextField';
 
 export default class CreateEvent extends Component {
   
@@ -148,38 +149,91 @@ export default class CreateEvent extends Component {
     render() {
         return (
             <div className="form-container" style={{margin: 30}}>
-                <h3>Create New Event</h3>
+              <h3>Create New Event</h3>
                 <form onSubmit={this.onSubmit}>
+
+                <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Client Name"
+                        placeholder="Client Name"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.title}
+                        onChange={this.onChangeTitle}
+                        />
+                  </div>
                   <div className="form-group">
-                    <label>Client Name: </label>
-                    <input type="text" className="form-control" placeholder="Client Name" value={this.state.title} onChange={this.onChangeTitle}
-                    />
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Phone Number"
+                        placeholder="555-555-5555"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.phone}
+                        onChange={this.onChangePhone}
+                        />
+                  </div>
+                  <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Client Email"
+                        placeholder="Client Email Address"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.email_address}
+                        onChange={this.onChangeEmailAddress}
+                        />
                   </div>
 
                   <div className="form-group">
-                    <label>Phone: </label>
-                    <input type="text" className="form-control" placeholder="555-555-5555" value={this.state.phone} onChange={this.onChangePhone}
-                    />
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Job Address"
+                        placeholder="Job Address"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.job_address}
+                        onChange={this.onChangeJobAddress}
+                        />
                   </div>
 
                   <div className="form-group">
-                    <label>Client Email Address: </label>
-                    <input type="text" className="form-control" placeholder="Email Address" value={this.state.email_address} onChange={this.onChangeEmailAddress}
-                    />
+                    <TextField
+                      id="outlined-with-placeholder"
+                      label="Assignee"
+                      placeholder="Employee Name"
+                      margin="normal"
+                      variant="outlined"
+                      value={this.state.employee}
+                      onChange={this.onChangeEmployee}
+                      />
                   </div>
-
                   <div className="form-group">
-                    <label>Job Address: </label>
-                    <input type="text" className="form-control" placeholder="Job Address" value={this.state.job_address} onChange={this.onChangeJobAddress}
+                    <TextField
+                      id="datetime-local"
+                      label="Date/Start Time"
+                      type="datetime-local"
+                      value={this.state.start}
+                      onChange={this.onChangeStart}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                     />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Assignee: </label>
-                    <input type="text" className="form-control" placeholder="Employee Name" value={this.state.employee} onChange={this.onChangeEmployee}
+                    </div>
+                    <div className="form-group">
+                    <TextField
+                      id="time"
+                      label="End Time"
+                      type="time"
+                      value={this.state.end}
+                      onChange={this.onChangeEnd}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                     />
-                  </div>
-
+                    </div>
+{/* 
                   <div className="form-group">
                     <label>Date: </label><br />
                     <DatePicker dateFormat="yyyy/MM/dd h:mm a"
@@ -208,14 +262,20 @@ export default class CreateEvent extends Component {
                                 onChange={this.onChangeEnd}
                     />
                   </div>
+ */}
+                    <div className="form-group">
+                      <TextField
+                        id="outlined-with-placeholder"
+                        label="Work Requested"
+                        placeholder="Work Requested"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.work_requested}
+                        onChange={this.onChangeWorkRequested}
+                        />
+                    </div>
 
-                  <div className="form-group">
-                    <label>Work Requested: </label>
-                    <textarea className="form-control" placeholder="Work Requested" value={this.state.work_requested} onChange={this.onChangeWorkRequested}
-                    />
-                  </div>
-
-                  <input type="submit" value="Create New Order" className="btn btn-primary" />
+                  <input type="submit" value="Create Work Order" className="btn btn-primary" />
                 </form>
             </div>
         )
