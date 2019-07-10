@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import orderBy from 'lodash/orderBy';
 import '../App.css';
 
 const Event = props => (
@@ -37,11 +38,21 @@ const Event = props => (
   </TableRow>
 )
 
+const invertDirection = {
+  asc: 'desc',
+  desc: 'asc'
+};
+
 export default class EventsList extends Component {
   
     constructor(props) {
       super(props);
-      this.state = {events: []};
+      this.state = {
+        events: [],
+        columnToSort: '',
+        sortDirection: 'desc'
+
+      };
     }
     
     componentDidMount() {
@@ -78,12 +89,30 @@ export default class EventsList extends Component {
       });
     }
     
+    handleSort = columnName => {
+      this.setState(state => ({
+        columnToSort: columnName,
+        sortDirection: state.columnToSort === columnName 
+        ? invertDirection[state.sortDirection]
+        : 'asc'
+      }));
+    }
+
     render() {
         return (
           <div style={{margin: 20}}>
             <h3 style={{marginTop: 20}}>Work Orders</h3>
             <Paper>
-                <Table className="table-responsive table-bordered" style={{ marginTop: 20}}>
+                <Table 
+                  className="table-responsive table-bordered"
+                  style={{ marginTop: 20}}
+                  handleSort={this.handleSort}
+                  data={orderBy(
+                    this.state.data, 
+                    this.state.columnToSort,
+                    this.state.sortDirection
+                    )}
+                >
                   <TableHead>
                     <TableRow>
                       <TableCell>Date/Time</TableCell>
