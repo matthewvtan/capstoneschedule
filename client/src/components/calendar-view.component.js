@@ -43,7 +43,6 @@ componentDidMount() {
   handleEventClick = ({ calendarEvent, el }) => {
     this.toggle();
     this.setState({ calendarEvent });
-    console.log(this.state.calendarEvent.title);
   };
   // componentDidUpdate() {
   //   axios.get('/events')
