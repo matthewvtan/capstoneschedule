@@ -19,7 +19,7 @@ export default class Home extends Component {
                 <br /><br />
                 <div>
                     <Button variant="contained" color="primary">
-                        <Link to="/create" className="nav-link">Create</Link>
+                        <Link to="/create" className="nav-link">New Work Order</Link>
                     </Button>
                 </div>
                 {/* <a href="#" class="btn-gradient blue block">
