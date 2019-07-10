@@ -21,8 +21,8 @@ export default class CreateEvent extends Component {
       this.onChangeStart = this.onChangeStart.bind(this);
       this.onChangeEnd = this.onChangeEnd.bind(this);
       this.onChangeWorkRequested = this.onChangeWorkRequested.bind(this);
+
       this.onSubmit = this.onSubmit.bind(this);
-      
       
       this.state = {
         title:'',
@@ -104,18 +104,12 @@ export default class CreateEvent extends Component {
     this.setState({
         start: date
     });
-    const { formData } = this.state;
-    formData[e.target.name] = e.target.value;
-    this.setState({ formData });
     }
 
     onChangeEnd(endTime) {
         this.setState({
           end: endTime
         });
-        const { formData } = this.state;
-        formData[e.target.name] = e.target.value;
-        this.setState({ formData });
       }
 
     onChangeWorkRequested(e) {
