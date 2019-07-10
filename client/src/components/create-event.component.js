@@ -3,8 +3,10 @@ import axios from 'axios';
 import "../App.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 export default class CreateEvent extends Component {
   
@@ -38,7 +40,18 @@ export default class CreateEvent extends Component {
         hours: '',
         materials: '',
         room: '',
-        completed: false
+        completed: false,
+        formData: {
+          title:'',
+          phone:'',
+          email_address: '',
+          job_address:'',
+          employee:'',
+          start:'',
+          end: '',
+          work_requested: ''
+      },
+        submitted: false
       }
     }
     
@@ -46,48 +59,72 @@ export default class CreateEvent extends Component {
       this.setState({
         title: e.target.value
       });
+      const { formData } = this.state;
+      formData[e.target.name] = e.target.value;
+      this.setState({ formData });
     }
     
     onChangePhone(e) {
       this.setState({
         phone: e.target.value
       });
+      const { formData } = this.state;
+      formData[e.target.name] = e.target.value;
+      this.setState({ formData });
     }
     
     onChangeEmailAddress(e) {
         this.setState({
           email_address: e.target.value
         });
+        const { formData } = this.state;
+        formData[e.target.name] = e.target.value;
+        this.setState({ formData });
       }
 
     onChangeJobAddress(e) {
     this.setState({
         job_address: e.target.value
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
     }
 
     onChangeEmployee(e) {
       this.setState({
         employee: e.target.value
       });
+      const { formData } = this.state;
+      formData[e.target.name] = e.target.value;
+      this.setState({ formData });
     }
 
     onChangeStart(date) {
     this.setState({
         start: date
     });
+    const { formData } = this.state;
+    formData[e.target.name] = e.target.value;
+    this.setState({ formData });
     }
 
     onChangeEnd(endTime) {
         this.setState({
           end: endTime
         });
+        const { formData } = this.state;
+        formData[e.target.name] = e.target.value;
+        this.setState({ formData });
       }
 
     onChangeWorkRequested(e) {
         this.setState({
             work_requested: e.target.value
         });
+        const { formData } = this.state;
+        formData[e.target.name] = e.target.value;
+        this.setState({ formData });
     }
 
     onSubmit(e) {
@@ -143,76 +180,95 @@ export default class CreateEvent extends Component {
         hours:'',
         materials:'',
         room:'',
-        completed: false
-      })
+        completed: false,
+        submitted: true
+      }, () => {
+        setTimeout(() => this.setState({ submitted: false}), 5000);
+      });
     }
     
     render() {
+      const { formData, submitted } = this.state;
         return (
           <div className="form-container" style={{margin: 30}}>
             <h3>Create New Event</h3>
               <Paper style={{padding: 30}}>
-                <form onSubmit={this.onSubmit} style={{margin: 20}}>
+                <ValidatorForm ref="form" onSubmit={this.onSubmit} style={{margin: 20}}>
 
                 <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Client Name"
                         placeholder="Client Name"
                         margin="normal"
                         variant="outlined"
-                        value={this.state.title}
+                        name="title"
+                        value={formData.title}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeTitle}
                         />
                   </div>
                   <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Phone Number"
                         placeholder="555-555-5555"
                         margin="normal"
                         variant="outlined"
-                        value={this.state.phone}
+                        name="phone"
+                        value={formData.phone}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangePhone}
                         />
                   </div>
                   <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Client Email"
                         placeholder="Client Email Address"
                         margin="normal"
                         variant="outlined"
-                        value={this.state.email_address}
+                        name="email_address"
+                        value={formData.email_address}
+                        validators={['required']}
+                        errorMessages={['this field is required']}                        
                         onChange={this.onChangeEmailAddress}
                         />
                   </div>
 
                   <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Job Address"
                         placeholder="Job Address"
                         margin="normal"
                         variant="outlined"
-                        value={this.state.job_address}
+                        name="job_address"
+                        value={formData.job_address}
+                        validators={['required']}
+                        errorMessages={['this field is required']}                        
                         onChange={this.onChangeJobAddress}
                         />
                   </div>
 
                   <div className="form-group">
-                    <TextField
+                    <TextValidator
                       id="outlined-with-placeholder"
                       label="Assignee"
                       placeholder="Employee Name"
                       margin="normal"
                       variant="outlined"
-                      value={this.state.employee}
+                      name="employee"
+                      value={formData.employee}
+                      validators={['required']}
+                      errorMessages={['this field is required']}                      
                       onChange={this.onChangeEmployee}
                       />
                   </div>
                   {/* <div className="form-group">
-                    <TextField
+                    <TextValidator
                       id="datetime-local"
                       label="Date/Start Time"
                       type="datetime-local"
@@ -224,7 +280,7 @@ export default class CreateEvent extends Component {
                     />
                     </div>
                     <div className="form-group">
-                    <TextField
+                    <TextValidator
                       id="time"
                       label="End Time"
                       type="time"
@@ -266,19 +322,33 @@ export default class CreateEvent extends Component {
                   </div>
  
                     <div className="form-group">
-                      <TextField
+                      <TextValidator
                         id="outlined-with-placeholder"
                         label="Work Requested"
                         placeholder="Work Requested"
                         margin="normal"
                         variant="outlined"
-                        value={this.state.work_requested}
+                        name="work_requested"
+                        value={formData.work_requested}
+                        validators={['required']}
+                        errorMessages={['this field is required']}
                         onChange={this.onChangeWorkRequested}
                         />
+                        <br />
                     </div>
-
-                  <input type="submit" value="Create Work Order" className="btn btn-primary" />
-                </form>
+                    <Button
+                    color="primary"
+                    variant="contained"
+                    type="submit"
+                    disabled={submitted}
+                >
+                    {
+                        (submitted && 'Your form is submitted!')
+                        || (!submitted && 'Submit')
+                    }
+                </Button>
+                  {/* <input type="submit" value="Create Work Order" className="btn btn-primary" /> */}
+                </ValidatorForm>
               </Paper>
           </div>
         )
