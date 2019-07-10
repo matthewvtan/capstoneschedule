@@ -73,7 +73,8 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a>
+              <a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a><br />
+              {this.state.events.title}
             </div>
           </ModalBody>
           <ModalFooter>
