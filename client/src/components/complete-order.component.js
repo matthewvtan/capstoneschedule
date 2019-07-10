@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { makeStyles } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
-import { ThemeProvider, makeStyles } from '@material-ui/styles';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import TextField from '@material-ui/core/TextField';
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     width: '100%',
-//     marginTop: theme.spacing(3),
-//     overflowX: 'auto',
-//   },
-//   table: {
-//     minWidth: 650,
-//   },
-// }));
-
-class CompleteOrder extends Component {
+export default class CompleteOrder extends Component {
   constructor(props) {
     super(props);
     
@@ -166,11 +152,7 @@ class CompleteOrder extends Component {
         return (
             <div className="form-container" style={{margin: 30}}>
               <h3>Complete Order</h3>
-              <ValidatorForm 
-                onSubmit={this.onSubmit}
-                ref="form"
-                onError={error => console.log(errors)}
-                >
+              <form onSubmit={this.onSubmit}>
                   <div className="inactive">
                     <div className="form-group">
                     <label>Client Name:</label>
@@ -206,18 +188,15 @@ class CompleteOrder extends Component {
 
                 <div className="form-group">
                   <label>Date Repaired:</label>
-                  <TextValidator 
-                    id="standard-with-placeholder"
-                    label="Date Repaired"
-                    placeholder="MM/DD/YYYY"
-                    margin="normal"
+                  <TextField type="text"
+                    className="form-control"
                     value={this.state.date_repaired}
                     onChange={this.onChangeDateRepaired}
                     />
                 </div>
                 <div className="form-group">
                   <label>Performed By:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.performed_by}
                     onChange={this.onChangePerformedBy}
@@ -225,7 +204,7 @@ class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Repairs Performed:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.repairs_performed}
                     onChange={this.onChangeRepairsPerformed}
@@ -282,7 +261,7 @@ class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Hours:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.hours}
                     onChange={this.onChangeHours}
@@ -290,7 +269,7 @@ class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Materials:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.materials}
                     onChange={this.onChangeMaterials}
@@ -298,7 +277,7 @@ class CompleteOrder extends Component {
                 </div>
                 <div className="form-group">
                   <label>Room:</label>
-                  <input type="text"
+                  <TextField type="text"
                     className="form-control"
                     value={this.state.room}
                     onChange={this.onChangeRoom}
@@ -321,13 +300,11 @@ class CompleteOrder extends Component {
                 <div className="form-group">
                   <input type="submit" value="Complete Order" className="btn btn-primary" />
                 </div>
-              </ValidatorForm>
+              </form>
             </div>
         )
     }
 }
-
-export default withStyles({ withTheme: true })(CompleteOrder);
 
 
 
