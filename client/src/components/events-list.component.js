@@ -51,7 +51,6 @@ export default class EventsList extends Component {
         events: [],
         columnToSort: '',
         sortDirection: 'desc'
-
       };
     }
     
@@ -107,8 +106,8 @@ export default class EventsList extends Component {
                   className="table-responsive table-bordered"
                   style={{ marginTop: 20}}
                   handleSort={this.handleSort}
-                  data={orderBy(
-                    this.state.data, 
+                  events={orderBy(
+                    this.state.events, 
                     this.state.columnToSort,
                     this.state.sortDirection
                     )}
