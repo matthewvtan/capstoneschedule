@@ -90,7 +90,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <a href="#">Date and Time</a>
+              <a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a>
             </div>
           </ModalBody>
           <ModalFooter>
