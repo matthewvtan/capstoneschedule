@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -76,7 +77,7 @@ componentDidMount() {
             <div>
               <p>{this.state.event.start}</p>
               <br />
-              <p><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{this.state.event.job_address}</a></p>
+              <p><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.job_address}>{this.state.event.job_address}</a></p>
             </div>
           </ModalBody>
           <ModalFooter>
