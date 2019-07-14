@@ -42,7 +42,7 @@ componentDidMount() {
   };
 
   handleEventClick = ({ event, el }) => {
-    console.log(`Address: ${this.state.job_address}`);
+    console.log(`Address: ${this.state.event.job_address}`);
     this.toggle();
     this.setState({ event });
   };
