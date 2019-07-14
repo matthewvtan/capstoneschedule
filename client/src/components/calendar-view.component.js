@@ -42,7 +42,7 @@ componentDidMount() {
 
   handleEventClick = ({ event, el }) => {
     this.toggle();
-    this.setState({ event });
+    // this.setState({ event });
     console.log("Event Clicked");
   };
 
