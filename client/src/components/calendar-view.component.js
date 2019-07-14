@@ -19,7 +19,8 @@ export default class CalendarView extends React.Component {
     calendarWeekends: true,
     event: {
       title: "",
-      start: ""
+      start: "",
+      job_address: ""
     },
     events: []
   };
