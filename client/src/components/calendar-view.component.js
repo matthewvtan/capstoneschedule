@@ -42,7 +42,7 @@ componentDidMount() {
 
   handleEventClick = ({ event, el }) => {
     this.toggle();
-    // this.setState({ event });
+    this.setState({ event });
     console.log("Event Clicked");
   };
 
@@ -74,7 +74,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.job_address}</p>
+              <p>{this.state.event.start.toISOString()}</p>
               <br />
             </div>
           </ModalBody>
