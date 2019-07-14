@@ -74,7 +74,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.start.toISOString()}</p>
+              <p>{this.state.event.title}</p>
               <br />
             </div>
           </ModalBody>
