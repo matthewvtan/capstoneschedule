@@ -80,7 +80,7 @@ componentDidMount() {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to={"/edit/"this.state.event.id}>Complete Order</Link></Button>{" "}
+            <Button color="primary"><Link to={"/edit/"+this.state.event.id}>Complete Order</Link></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
