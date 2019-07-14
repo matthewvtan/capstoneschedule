@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -22,8 +21,7 @@ export default class CalendarView extends React.Component {
       title: '',
       start: '',
       end: '',
-      job_address: '',
-      id: ''
+      job_address: ''
     }
   };
       
@@ -44,7 +42,7 @@ componentDidMount() {
 
   handleEventClick = ({ event, el }) => {
     this.toggle();
-    // this.setState({ event });
+    this.setState({ event });
   };
 
   render() {
@@ -77,11 +75,10 @@ componentDidMount() {
             <div>
               <p>{this.state.event.start}</p>
               <br />
-              <p><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.job_address}>{this.state.event.job_address}</a></p>
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to={"/edit/"+this.state.event.id}>Complete Order</Link></Button>{" "}
+            <Button color="primary"><a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
