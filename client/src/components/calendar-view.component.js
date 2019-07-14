@@ -18,10 +18,10 @@ export default class CalendarView extends React.Component {
     modal: false,
     calendarWeekends: true,
     event: {
-      title: '',
-      start: '',
-      end: '',
-      job_address: ''
+      title: "",
+      start: "",
+      end: "",
+      job_address: ""
     },
     events: []
   };
@@ -42,9 +42,9 @@ componentDidMount() {
   };
 
   handleEventClick = ({ event, el }) => {
+    console.log(`Address: ${this.state.job_address}`);
     this.toggle();
     this.setState({ event });
-    console.log("Event Clicked");
   };
 
   render() {
