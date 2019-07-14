@@ -42,7 +42,7 @@ componentDidMount() {
   };
 
   handleEventClick = ({ event, el }) => {
-    console.log(`Address: ${this.state.event.job_address}`);
+    console.log(`Address: ${this.state.event.start}`);
     this.toggle();
     this.setState({ event });
   };
@@ -75,7 +75,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.job_address}</p>
+              <p>{this.state.event.title}</p>
               <br />
             </div>
           </ModalBody>
