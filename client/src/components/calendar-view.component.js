@@ -21,7 +21,8 @@ export default class CalendarView extends React.Component {
       title: '',
       start: '',
       end: '',
-      job_address: ''
+      job_address: '',
+      id: ''
     }
   };
       
@@ -42,7 +43,7 @@ componentDidMount() {
 
   handleEventClick = ({ event, el }) => {
     this.toggle();
-    this.setState({ event });
+    // this.setState({ event });
   };
 
   render() {
@@ -73,12 +74,13 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.title}</p>
+              <p>{this.state.event.start}</p>
               <br />
+              <p><a href={"https://www.google.com/maps/search/?api=1&query="+props.event.job_address}>{this.state.event.job_address}</a></p>
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a></Button>{" "}
+            <Button color="primary"><Link to={"/edit/"this.state.event.id}>Complete Order</Link></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
