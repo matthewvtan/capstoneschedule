@@ -47,8 +47,7 @@ componentDidMount() {
 
   render() {
     return (
-      <div className="cal-container">
-        <div style={{marginTop: 30}}>
+      <div className="cal-container" style={{marginTop: 30}}>
           <FullCalendar
             defaultView="timeGridDay"
             header={{
@@ -59,20 +58,25 @@ componentDidMount() {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends={this.state.calendarWeekends}
-            events={this.state.events}
+            events={[
+              { title: "event 1", start: "2019-05-01" },
+              { title: "event 2", start: "2019-05-02" }
+            ]}
             eventClick={this.handleEventClick}
-            nowIndicator='true'
-            height='parent'
+            nowIndicator="true"
+            height="parent"
+            selectable="true"
           />
           <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
+            {this.state.event.title}
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>To see information for this Work Order, please view the full Order List below.</p>
+              <p>{this.state.event.start}</p>
               <br />
             </div>
           </ModalBody>
@@ -83,7 +87,6 @@ componentDidMount() {
             </Button>
           </ModalFooter>
         </Modal>
-        </div>
       </div>
     );
   }
