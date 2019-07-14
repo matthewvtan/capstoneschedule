@@ -76,7 +76,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.start}</p>
+              <p>{this.state.event.title}</p>
               <br />
             </div>
           </ModalBody>
