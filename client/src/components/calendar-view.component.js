@@ -19,9 +19,7 @@ export default class CalendarView extends React.Component {
     calendarWeekends: true,
     event: {
       title: "",
-      start: "",
-      end: "",
-      job_address: ""
+      start: ""
     },
     events: []
   };
@@ -42,7 +40,7 @@ componentDidMount() {
   };
 
   handleEventClick = ({ event, el }) => {
-    console.log(`Address: ${this.state.event.start}`);
+    console.log(`Address: ${this.state.event.extendedProps.job_address}`);
     this.toggle();
     this.setState({ event });
   };
