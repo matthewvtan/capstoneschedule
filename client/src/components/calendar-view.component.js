@@ -6,6 +6,18 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from '@fullcalendar/list';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import Button from "@material-ui/core";
+import Dialog from "@material-ui/core";
+import ListItemText from "@material-ui/core";
+import ListItem from "@material-ui/core";
+import List from "@material-ui/core";
+import Divider from "@material-ui/core;
+import AppBar from "@material-ui/core";
+import Toolbar from "@material-ui/core";
+import IconButton from "@material-ui/core";
+import Typography from "@material-ui/corey";
+import CloseIcon from "@material-ui/core";
+import Slide from "@material-ui/core";
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -18,6 +30,7 @@ export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
 
   state = {
+    open: false,
     modal: false,
     calendarWeekends: true,
     event: {
@@ -47,10 +60,10 @@ componentDidMount() {
 
   toggle = () => {
     this.setState({ modal: !this.state.modal });
+    this.setState({ open: !this.state.open });
   };
 
   handleEventClick = ({ event, el }) => {
-    console.log(`Address: ${this.state.event.extendedProps.job_address}`);
     this.toggle();
     this.setState({ event });
   };
@@ -74,7 +87,7 @@ componentDidMount() {
             height="parent"
             selectable="true"
           />
-          <Modal
+          {/* <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
         >
@@ -102,7 +115,41 @@ componentDidMount() {
               Cancel
             </Button>
           </ModalFooter>
-        </Modal>
+        </Modal> */}
+
+{/* - - - - - - - - - - - D I A L O G */}
+
+        <Dialog open={this.state.open} onClose={this.toggle} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              <ListItem>
+                <p className="modalText">Client Name: {this.state.event.title}</p>
+              </ListItem>
+              <ListItem>
+                <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              </ListItem>
+              <ListItem>
+                <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
+              </ListItem>
+              <ListItem>
+                <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
+              </ListItem>
+              <ListItem>
+                <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
+              </ListItem>
+            </DialogContentText>
+            <TextField autoFocus margin="dense" id="name" label="Email Address" type="email" fullWidth />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.toggle} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.toggle} color="primary">
+              Subscribe
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     );
   }
