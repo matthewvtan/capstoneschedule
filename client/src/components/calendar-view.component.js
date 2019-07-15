@@ -115,12 +115,12 @@ componentDidMount() {
 
 {/* - - - - - - - - - - - D I A L O G */}
 <Dialog
-        fullScreen={fullScreen}
+        fullScreen="true"
         open={this.state.open}
         onClose={this.toggle}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">Work Order Details</DialogTitle>
         <DialogContent>
           <DialogContentText>
             <ListItem>
