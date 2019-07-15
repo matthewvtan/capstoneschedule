@@ -20,6 +20,10 @@ p {
   font-weight: 800;
 }
 
+p.modalText {
+  font-family: "Roboto";
+}
+
 div.button-container {
   margin: 0 auto;
   align-content: center;

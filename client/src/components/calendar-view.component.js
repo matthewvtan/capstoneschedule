@@ -7,6 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from 'axios';
 import "../main.scss";
+import "../App.css";
 
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
@@ -81,20 +82,21 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>Client Name: {this.state.event.title}</p>
               <br />
-              <p>Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              <p className="modalText">Client Name: {this.state.event.title}</p>
               <br />
-              <p>Phone: {this.state.event.extendedProps.phone}</p>
+              <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
               <br />
-              <p>Email Address: {this.state.event.extendedProps.email_address}</p>
+              <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
               <br />
-              <p>Work Requested: {this.state.event.extendedProps.work_requested}</p>
+              <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
+              <br />
+              <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
               <br />
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps._id}>Complete</Link></Button>{" "}
+            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: white}}>Complete</Link></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
