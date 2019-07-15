@@ -96,7 +96,7 @@ componentDidMount() {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: white}}>Complete</Link></Button>{" "}
+            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: "white"}}>Complete</Link></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
