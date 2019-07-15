@@ -1,11 +1,10 @@
 import React from "react";
-import Table, {
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn
-} from "@material-ui/core/Table";
+import Table from "@material-ui/core/Table";
+import TableBody from '@material-ui/core/TableBody';
+import TableHeader from '@material-ui/core/TableHeader';
+import TableHeaderColumn from '@material-ui/core/TableHeaderColumn';
+import TableRow from '@material-ui/core/TableRow';
+import TableRowHeader from '@material-ui/core/TableRowHeader';
 import EditIcon from "@material-ui/icons/Edit";
 import TrashIcon from "@material-ui/icons/Delete";
 import CheckIcon from "@material-ui/icons/Check";
