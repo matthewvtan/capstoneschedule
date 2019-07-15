@@ -22,6 +22,7 @@ p {
 
 p.modalText {
   font-family: "Roboto";
+  font-weight: 400;
 }
 
 div.button-container {
