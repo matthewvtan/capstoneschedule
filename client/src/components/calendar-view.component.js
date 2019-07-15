@@ -125,33 +125,33 @@ componentDidMount() {
         <Divider />
         <DialogContent>
           <DialogContentText>
-            <ListItemSubheader>
+            <ListSubheader>
             Client Name:
-            </ListItemSubheader>
+            </ListSubheader>
             <ListItem>
               <p className="modalText">{this.state.event.title}</p>
             </ListItem>
-            <ListItemSubheader>
+            <ListSubheader>
             Job Address: 
-            </ListItemSubheader>
+            </ListSubheader>
             <ListItem>
               <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             </ListItem>
-            <ListItemSubheader>
+            <ListSubheader>
             Phone:
-            </ListItemSubheader>
+            </ListSubheader>
             <ListItem>
               <p className="modalText">{this.state.event.extendedProps.phone}</p>
             </ListItem>
-            <ListItemSubheader>
+            <ListSubheader>
             Email Address: 
-            </ListItemSubheader>
+            </ListSubheader>
             <ListItem>
               <p className="modalText">{this.state.event.extendedProps.email_address}</p>
             </ListItem>
-            <ListItemSubheader>
+            <ListSubheader>
             Work Requested:
-            </ListItemSubheader>
+            </ListSubheader>
             <ListItem>
               <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
             </ListItem>
