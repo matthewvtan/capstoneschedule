@@ -12,7 +12,7 @@ import TrashIcon from "@material-ui/svg-icons/action/delete";
 import CheckIcon from "@material-ui/svg-icons/navigation/check";
 import DownArrow from "@material-ui/svg-icons/navigation/arrow-drop-down";
 import UpArrow from "@material-ui/svg-icons/navigation/arrow-drop-up";
-import TextField from "@material-ui/TextField";
+import TextField from "@material-ui/core/TextField";
 
 const row = (
   x,
