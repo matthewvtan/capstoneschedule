@@ -148,7 +148,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import orderBy from "lodash/orderBy";
 
 import "../App.css";
-import Table from "./Table";
+import Table from "./table.component";
 
 
 const invertDirection = {
