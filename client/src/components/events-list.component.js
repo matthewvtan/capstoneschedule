@@ -144,7 +144,7 @@
 //     }
 // }
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+// import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import orderBy from "lodash/orderBy";
 
 import "../App.css";
@@ -270,7 +270,7 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider>
         <div className="App">
           <Table
             handleSort={this.handleSort}
@@ -306,7 +306,7 @@ class App extends Component {
             ]}
           />
         </div>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     );
   }
 }
