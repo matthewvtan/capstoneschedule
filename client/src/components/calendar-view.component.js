@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -76,22 +77,24 @@ componentDidMount() {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            {this.state.event.title}
+            Work Order Details
           </ModalHeader>
           <ModalBody>
             <div>
-              <p><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              <p>Client Name: {this.state.event.title}</p>
               <br />
-              <p>{this.state.event.extendedProps.phone}</p>
+              <p>Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
               <br />
-              <p>{this.state.event.extendedProps.email_address}</p>
+              <p>Phone: {this.state.event.extendedProps.phone}</p>
               <br />
-              <p>{this.state.event.extendedProps.work_requested}</p>
+              <p>Email Address: {this.state.event.extendedProps.email_address}</p>
+              <br />
+              <p>Work Requested: {this.state.event.extendedProps.work_requested}</p>
               <br />
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><a href="https://evening-hollows-87113.herokuapp.com/list">View Order List</a></Button>{" "}
+            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps.id}>Complete</Link></a></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
