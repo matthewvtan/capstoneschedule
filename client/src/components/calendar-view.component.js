@@ -115,7 +115,6 @@ componentDidMount() {
 
 {/* - - - - - - - - - - - D I A L O G */}
 <Dialog
-        fullScreen="true"
         open={this.state.open}
         onClose={this.toggle}
         aria-labelledby="responsive-dialog-title"
@@ -141,11 +140,13 @@ componentDidMount() {
            </DialogContentText>
           </DialogContent>
         <DialogActions>
-          <Button onClick={this.toggle} color="primary">
-            Disagree
+          <Button color="primary">
+            <Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: "white"}}>
+              Complete
+            </Link>
           </Button>
           <Button onClick={this.toggle} color="primary" autoFocus>
-            Agree
+            Close
           </Button>
         </DialogActions>
       </Dialog>
