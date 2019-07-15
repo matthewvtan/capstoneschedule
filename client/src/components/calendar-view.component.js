@@ -21,7 +21,11 @@ export default class CalendarView extends React.Component {
       title: "",
       start: "",
       extendedProps: {
-        job_address: ""
+        job_address: "",
+        id: "",
+        work_requested: "",
+        email_address: "",
+        phone: ""
       }
     },
     events: []
@@ -76,7 +80,13 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.extendedProps.job_address}</p>
+              <p><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              <br />
+              <p>{this.state.event.extendedProps.phone}</p>
+              <br />
+              <p>{this.state.event.extendedProps.email_address}</p>
+              <br />
+              <p>{this.state.event.extendedProps.work_requested}</p>
               <br />
             </div>
           </ModalBody>
