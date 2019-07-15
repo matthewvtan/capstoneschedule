@@ -6,7 +6,7 @@ import {
   TableHeaderColumn,
   TableRow,
   TableRowColumn
-} from "@material-ui/Table";
+} from "@material-ui/core/Table";
 import EditIcon from "@material-ui/svg-icons/image/edit";
 import TrashIcon from "@material-ui/svg-icons/action/delete";
 import CheckIcon from "@material-ui/svg-icons/navigation/check";
