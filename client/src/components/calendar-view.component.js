@@ -94,7 +94,7 @@ componentDidMount() {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps.id}>Complete</Link></a></Button>{" "}
+            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps.id}>Complete</Link></Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
