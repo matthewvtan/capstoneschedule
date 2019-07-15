@@ -6,14 +6,13 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from '@fullcalendar/list';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import Dialog from "@material-ui/core/Dialog";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Slide from "@material-ui/core/Slide";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -114,39 +113,43 @@ componentDidMount() {
         </Modal> */}
 
 {/* - - - - - - - - - - - D I A L O G */}
-
-        <Dialog open={this.state.open} onClose={this.toggle} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              <ListItem>
-                <p className="modalText">Client Name: {this.state.event.title}</p>
-              </ListItem>
-              <ListItem>
-                <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
-              </ListItem>
-              <ListItem>
-                <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
-              </ListItem>
-              <ListItem>
-                <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
-              </ListItem>
-              <ListItem>
-                <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
-              </ListItem>
-            </DialogContentText>
-            <TextField autoFocus margin="dense" id="name" label="Email Address" type="email" fullWidth />
+<Dialog
+        fullScreen={fullScreen}
+        open={this.state.open}
+        onClose={this.toggle}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <ListItem>
+              <p className="modalText">Client Name: {this.state.event.title}</p>
+            </ListItem>
+            <ListItem>
+              <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+            </ListItem>
+            <ListItem>
+              <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
+            </ListItem>
+            <ListItem>
+              <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
+            </ListItem>
+            <ListItem>
+              <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
+            </ListItem>
+           </DialogContentText>
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.toggle} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.toggle} color="primary">
-              Subscribe
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+        <DialogActions>
+          <Button onClick={this.toggle} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={this.toggle} color="primary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
     );
   }
 }
