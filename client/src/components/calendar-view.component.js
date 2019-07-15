@@ -76,7 +76,7 @@ componentDidMount() {
           </ModalHeader>
           <ModalBody>
             <div>
-              <p>{this.state.event.title}</p>
+              <p>{this.state.event.extendedProps.job_address}</p>
               <br />
             </div>
           </ModalBody>
