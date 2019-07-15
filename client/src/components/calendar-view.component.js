@@ -15,6 +15,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -121,7 +122,7 @@ componentDidMount() {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">Work Order Details</DialogTitle>
-        <DialogContent dividers>
+        <Divider />
         <DialogContent>
           <DialogContentText>
             <ListItemSubheader>
