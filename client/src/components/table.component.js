@@ -7,11 +7,11 @@ import {
   TableRow,
   TableRowColumn
 } from "@material-ui/core/Table";
-import EditIcon from "@material-ui/svg-icons/image/edit";
-import TrashIcon from "@material-ui/svg-icons/action/delete";
-import CheckIcon from "@material-ui/svg-icons/navigation/check";
-import DownArrow from "@material-ui/svg-icons/navigation/arrow-drop-down";
-import UpArrow from "@material-ui/svg-icons/navigation/arrow-drop-up";
+import EditIcon from "@material-ui/icons/image/edit";
+import TrashIcon from "@material-ui/icons/action/delete";
+import CheckIcon from "@material-ui/icons/navigation/check";
+import DownArrow from "@material-ui/icons/navigation/arrow-drop-down";
+import UpArrow from "@material-ui/icons/navigation/arrow-drop-up";
 import TextField from "@material-ui/core/TextField";
 
 const row = (
