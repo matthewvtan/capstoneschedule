@@ -6,7 +6,6 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from '@fullcalendar/list';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import Button from "@material-ui/core";
 import Dialog from "@material-ui/core";
 import ListItemText from "@material-ui/core";
 import ListItem from "@material-ui/core";
@@ -59,7 +58,7 @@ componentDidMount() {
   }
 
   toggle = () => {
-    this.setState({ modal: !this.state.modal });
+    // this.setState({ modal: !this.state.modal });
     this.setState({ open: !this.state.open });
   };
 
