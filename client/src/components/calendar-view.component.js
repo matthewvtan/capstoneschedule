@@ -14,6 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -120,22 +121,38 @@ componentDidMount() {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">Work Order Details</DialogTitle>
+        <DialogContent dividers>
         <DialogContent>
           <DialogContentText>
+            <ListItemSubheader>
+            Client Name:
+            </ListItemSubheader>
             <ListItem>
-              <p className="modalText">Client Name: {this.state.event.title}</p>
+              <p className="modalText">{this.state.event.title}</p>
             </ListItem>
+            <ListItemSubheader>
+            Job Address: 
+            </ListItemSubheader>
             <ListItem>
-              <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             </ListItem>
+            <ListItemSubheader>
+            Phone:
+            </ListItemSubheader>
             <ListItem>
-              <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
+              <p className="modalText">{this.state.event.extendedProps.phone}</p>
             </ListItem>
+            <ListItemSubheader>
+            Email Address: 
+            </ListItemSubheader>
             <ListItem>
-              <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
+              <p className="modalText">{this.state.event.extendedProps.email_address}</p>
             </ListItem>
+            <ListItemSubheader>
+            Work Requested:
+            </ListItemSubheader>
             <ListItem>
-              <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
+              <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
             </ListItem>
            </DialogContentText>
           </DialogContent>
@@ -145,7 +162,7 @@ componentDidMount() {
               Complete
             </Link>
           </Button>
-          <Button onClick={this.toggle} color="primary" autoFocus>
+          <Button onClick={this.toggle} color="secondary" autoFocus>
             Close
           </Button>
         </DialogActions>
