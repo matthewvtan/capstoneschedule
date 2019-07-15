@@ -20,7 +20,9 @@ export default class CalendarView extends React.Component {
     event: {
       title: "",
       start: "",
-      job_address: ""
+      extendedProps: {
+        job_address: ""
+      }
     },
     events: []
   };
