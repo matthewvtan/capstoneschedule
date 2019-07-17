@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 import moment from 'moment';
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
@@ -224,8 +225,9 @@ export default class EditEvent extends Component {
   render() {
     return (
       <div className="form-container" style={{margin: 30}}>
-        <h3>Edit Work Order</h3>
           <Paper style={{padding: 30}}>
+          <h3>Edit Work Order</h3>
+                <Divider />
             <form onSubmit={this.onSubmit} style={{margin: 20}}>
 
             <div className="form-group">
@@ -377,7 +379,7 @@ export default class EditEvent extends Component {
                 <br />
                 <hr />
                 <br />
-                
+
                 <div className="form-group">
                       <TextField
                         id="outlined-with-placeholder"

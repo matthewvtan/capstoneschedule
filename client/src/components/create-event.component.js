@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 export default class CreateEvent extends Component {
