@@ -130,7 +130,8 @@ componentDidMount() {
             <p className="modalTextHeader">
             Job Address: 
             </p>
-              <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+              <p className="modalText">
+                <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             <p className="modalTextHeader">
             Phone:
             </p>
@@ -140,7 +141,9 @@ componentDidMount() {
             <p className="modalTextHeader">
             Email Address: 
             </p>
-              <p className="modalText">{this.state.event.extendedProps.email_address}</p>
+              <p className="modalText">
+                <a href={"mailto:"+this.state.event.extendedProps.email_address}>{this.state.event.extendedProps.email_address}</a>
+              </p>
             <p className="modalTextHeader">
             Work Requested:
             </p>
