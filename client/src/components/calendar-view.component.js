@@ -15,7 +15,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import "../main.scss";
@@ -126,33 +125,33 @@ componentDidMount() {
         <Divider />
         <DialogContent>
           <DialogContentText>
-            <ListSubheader>
+            <p>
             Client Name:
-            </ListSubheader>
+            </p>
             <ListItem>
               <ListItemText className="modalText">{this.state.event.title}</ListItemText>
             </ListItem>
-            <ListSubheader>
+            <p>
             Job Address: 
-            </ListSubheader>
+            </p>
             <ListItem>
               <ListItemText className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></ListItemText>
             </ListItem>
-            <ListSubheader>
+            <p>
             Phone:
-            </ListSubheader>
+            </p>
             <ListItem>
               <ListItemText className="modalText">{this.state.event.extendedProps.phone}</ListItemText>
             </ListItem>
-            <ListSubheader>
+            <p>
             Email Address: 
-            </ListSubheader>
+            </p>
             <ListItem>
               <ListItemText className="modalText">{this.state.event.extendedProps.email_address}</ListItemText>
             </ListItem>
-            <ListSubheader>
+            <p>
             Work Requested:
-            </ListSubheader>
+            </p>
             <ListItem>
               <ListItemText className="modalText">{this.state.event.extendedProps.work_requested}</ListItemText>
             </ListItem>
