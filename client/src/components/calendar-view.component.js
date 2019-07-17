@@ -118,36 +118,30 @@ componentDidMount() {
 <Dialog
         open={this.state.open}
         onClose={this.toggle}
-        aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">Work Order Details</DialogTitle>
+        <DialogTitle>Work Order Details</DialogTitle>
         <Divider />
         <DialogContent>
           <DialogContentText>
             <p>
             Client Name:
             </p>
-            <br />
               <p className="modalText">{this.state.event.title}</p>
             <p>
             Job Address: 
             </p>
-            <br />
               <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             <p>
             Phone:
             </p>
-            <br />
               <p className="modalText">{this.state.event.extendedProps.phone}</p>
             <p>
             Email Address: 
             </p>
-            <br />
               <p className="modalText">{this.state.event.extendedProps.email_address}</p>
             <p>
             Work Requested:
             </p>
-            <br />
               <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
            </DialogContentText>
           </DialogContent>
