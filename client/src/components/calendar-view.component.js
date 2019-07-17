@@ -127,33 +127,28 @@ componentDidMount() {
             <p>
             Client Name:
             </p>
-            <ListItem>
+            <br />
               <p className="modalText">{this.state.event.title}</p>
-            </ListItem>
             <p>
             Job Address: 
             </p>
-            <ListItem>
+            <br />
               <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
-            </ListItem>
             <p>
             Phone:
             </p>
-            <ListItem>
+            <br />
               <p className="modalText">{this.state.event.extendedProps.phone}</p>
-            </ListItem>
             <p>
             Email Address: 
             </p>
-            <ListItem>
+            <br />
               <p className="modalText">{this.state.event.extendedProps.email_address}</p>
-            </ListItem>
             <p>
             Work Requested:
             </p>
-            <ListItem>
+            <br />
               <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
-            </ListItem>
            </DialogContentText>
           </DialogContent>
         <DialogActions>
