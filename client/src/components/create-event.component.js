@@ -185,8 +185,9 @@ export default class CreateEvent extends Component {
       const { formData, submitted } = this.state;
         return (
           <div className="form-container" style={{margin: 30}}>
-            <h3>Create New Event</h3>
               <Paper style={{padding: 30}}>
+              <h3>New Work Order</h3>
+                <Divider />
                 <ValidatorForm ref="form" onSubmit={this.onSubmit} style={{margin: 20}}>
 
                 <div className="form-group">

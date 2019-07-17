@@ -6,6 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const labors = [
@@ -203,8 +204,9 @@ export default class CompleteOrder extends Component {
       const { formData, submitted } = this.state;
         return (
             <div className="form-container" style={{margin: 30}}>
-              <h3>Complete Order</h3>
                 <Paper style={{padding: 30}}>
+                <h3>Complete Order</h3>
+                <Divider />
                   <ValidatorForm ref="form" onSubmit={this.onSubmit} style={{margin: 20}}>
                     <div className="form-group">
                       <TextField

@@ -145,6 +145,7 @@ componentDidMount() {
               <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
            </DialogContentText>
           </DialogContent>
+          <Divider />
         <DialogActions>
           <Button color="primary">
             <Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: "white"}}>
