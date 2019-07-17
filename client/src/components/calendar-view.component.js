@@ -14,7 +14,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import "../main.scss";
@@ -129,31 +128,31 @@ componentDidMount() {
             Client Name:
             </p>
             <ListItem>
-              <ListItemText className="modalText">{this.state.event.title}</ListItemText>
+              <p className="modalText">{this.state.event.title}</p>
             </ListItem>
             <p>
             Job Address: 
             </p>
             <ListItem>
-              <ListItemText className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></ListItemText>
+              <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             </ListItem>
             <p>
             Phone:
             </p>
             <ListItem>
-              <ListItemText className="modalText">{this.state.event.extendedProps.phone}</ListItemText>
+              <p className="modalText">{this.state.event.extendedProps.phone}</p>
             </ListItem>
             <p>
             Email Address: 
             </p>
             <ListItem>
-              <ListItemText className="modalText">{this.state.event.extendedProps.email_address}</ListItemText>
+              <p className="modalText">{this.state.event.extendedProps.email_address}</p>
             </ListItem>
             <p>
             Work Requested:
             </p>
             <ListItem>
-              <ListItemText className="modalText">{this.state.event.extendedProps.work_requested}</ListItemText>
+              <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
             </ListItem>
            </DialogContentText>
           </DialogContent>
