@@ -16,11 +16,14 @@ div.button-container .nav-link{
   width: 40vw;
 }
 
-p {
-  font-weight: 800;
+p.modalTextHeader {
+  font-size: .03em;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 p.modalText {
+  color: rgb(0,0,0);
   font-family: "Roboto";
   font-weight: 400;
 }

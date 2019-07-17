@@ -123,23 +123,23 @@ componentDidMount() {
         <Divider />
         <DialogContent>
           <DialogContentText>
-            <p>
+            <p className="modalTextHeader">
             Client Name:
             </p>
               <p className="modalText">{this.state.event.title}</p>
-            <p>
+            <p className="modalTextHeader">
             Job Address: 
             </p>
               <p className="modalText"><a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
-            <p>
+            <p className="modalTextHeader">
             Phone:
             </p>
               <p className="modalText">{this.state.event.extendedProps.phone}</p>
-            <p>
+            <p className="modalTextHeader">
             Email Address: 
             </p>
               <p className="modalText">{this.state.event.extendedProps.email_address}</p>
-            <p>
+            <p className="modalTextHeader">
             Work Requested:
             </p>
               <p className="modalText">{this.state.event.extendedProps.work_requested}</p>
