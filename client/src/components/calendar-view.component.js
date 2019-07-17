@@ -127,14 +127,23 @@ componentDidMount() {
           <DialogContentText>
             <TextField
               id="standard-read-only-input"
-              label="CLIENT NAME"
+              label="Client Name"
               value={this.state.event.title}
               margin="normal"
               InputProps={{
                 readOnly: true,
               }}
-        />
-            <p className="modalTextHeader">
+            /> 
+            <TextField
+              id="standard-read-only-input"
+              label="Job Address"
+              value={<a href={"https://www.google.com/maps/search/?api=1?query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a>}
+              margin="normal"
+              InputProps={{
+                readOnly: true,
+              }}
+            /> 
+            {/* <p className="modalTextHeader">
             Client Name:
             </p>
               <p className="modalText">{this.state.event.title}</p>
@@ -142,7 +151,7 @@ componentDidMount() {
             Job Address: 
             </p>
               <p className="modalText">
-                <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
+                <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p> */}
             <p className="modalTextHeader">
             Phone:
             </p>
