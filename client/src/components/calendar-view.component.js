@@ -118,6 +118,7 @@ componentDidMount() {
 <Dialog
         open={this.state.open}
         onClose={this.toggle}
+        fullWidth="true"
       >
         <DialogTitle>Work Order Details</DialogTitle>
         <Divider />
