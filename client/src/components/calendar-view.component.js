@@ -128,7 +128,7 @@ componentDidMount() {
             <TextField
               id="standard-read-only-input"
               label="CLIENT NAME"
-              defaultValue={this.state.event.title}
+              value={this.state.event.title}
               margin="normal"
               InputProps={{
                 readOnly: true,
