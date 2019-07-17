@@ -134,7 +134,9 @@ componentDidMount() {
             <p className="modalTextHeader">
             Phone:
             </p>
-              <p className="modalText">{this.state.event.extendedProps.phone}</p>
+              <p className="modalText">
+                <a href={"tel:"+this.state.event.extendedProps.phone}>{this.state.event.extendedProps.phone}</a>
+              </p>
             <p className="modalTextHeader">
             Email Address: 
             </p>
