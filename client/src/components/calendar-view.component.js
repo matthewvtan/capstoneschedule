@@ -15,6 +15,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -124,6 +125,15 @@ componentDidMount() {
         <Divider />
         <DialogContent>
           <DialogContentText>
+            <TextField
+              id="standard-read-only-input"
+              label="CLIENT NAME"
+              defaultValue={this.state.event.title}
+              margin="normal"
+              InputProps={{
+                readOnly: true,
+              }}
+        />
             <p className="modalTextHeader">
             Client Name:
             </p>
