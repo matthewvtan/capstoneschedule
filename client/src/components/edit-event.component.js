@@ -12,20 +12,20 @@ import moment from 'moment';
 
 const labors = [
   {
-    value: 'T1',
-    label: 'T1',
+    value: '1M',
+    label: '1M',
   },
   {
-    value: 'T2',
-    label: 'T2',
+    value: '2M',
+    label: '2M',
   },
   {
-    value: 'T3',
-    label: 'T3',
+    value: '3M',
+    label: '3M',
   },
   {
-    value: 'T4',
-    label: 'T4',
+    value: '4M',
+    label: '4M',
   },
 ];
 
@@ -425,7 +425,7 @@ export default class EditEvent extends Component {
                               SelectProps={{
                                 MenuProps: {},
                               }}
-                              helperText="Select T1, T2, T3, or T4"
+                              helperText="Select 1M, 2M, 3M, or 4M"
                               margin="normal"
                               variant="outlined"
                             >
