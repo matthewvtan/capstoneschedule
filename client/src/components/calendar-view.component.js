@@ -15,7 +15,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
-import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import "../main.scss";
 import "../App.css";
@@ -125,25 +124,7 @@ componentDidMount() {
         <Divider />
         <DialogContent>
           <DialogContentText>
-            <TextField
-              id="standard-read-only-input"
-              label="Client Name"
-              value={this.state.event.title}
-              margin="normal"
-              InputProps={{
-                readOnly: true,
-              }}
-            /> 
-            <TextField
-              id="standard-read-only-input"
-              label="Job Address"
-              value={<a href={"https://www.google.com/maps/search/?api=1?query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a>}
-              margin="normal"
-              InputProps={{
-                readOnly: true,
-              }}
-            /> 
-            {/* <p className="modalTextHeader">
+            <p className="modalTextHeader">
             Client Name:
             </p>
               <p className="modalText">{this.state.event.title}</p>
@@ -151,7 +132,7 @@ componentDidMount() {
             Job Address: 
             </p>
               <p className="modalText">
-                <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p> */}
+                <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
             <p className="modalTextHeader">
             Phone:
             </p>
