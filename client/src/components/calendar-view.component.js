@@ -102,13 +102,14 @@ componentWillMount() {
   };
 
   render() {
-    if (this.state.isLoading &&
-      this.state.msElapsed > this.showSpinnerIfReturnGreaterThanMs) {
-      return <h1>LOADING</h1>;
-  } else if (this.state.isLoading &&
-      this.state.msElapsed <= this.showSpinnerIfReturnGreaterThanMs) {
-      return (null);
-  }
+  // ––––––––––LOADING ANIMATION––––––––––– 
+  //   if (this.state.isLoading &&
+  //     this.state.msElapsed > this.showSpinnerIfReturnGreaterThanMs) {
+  //     return <h1>LOADING</h1>;
+  // } else if (this.state.isLoading &&
+  //     this.state.msElapsed <= this.showSpinnerIfReturnGreaterThanMs) {
+  //     return (null);
+  // }
     return (
       <div className="cal-container" style={{marginTop: 30}}>
           <FullCalendar
@@ -127,36 +128,6 @@ componentWillMount() {
             height="parent"
             selectable="true"
           />
-          {/* <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-        >
-          <ModalHeader toggle={this.toggle}>
-            Work Order Details
-          </ModalHeader>
-          <ModalBody>
-            <div>
-              <br />
-              <p className="modalText">Client Name: {this.state.event.title}</p>
-              <br />
-              <p className="modalText">Job Address: <a href={"https://www.google.com/maps/search/?api=1&query="+this.state.event.extendedProps.job_address}>{this.state.event.extendedProps.job_address}</a></p>
-              <br />
-              <p className="modalText">Phone: {this.state.event.extendedProps.phone}</p>
-              <br />
-              <p className="modalText">Email Address: {this.state.event.extendedProps.email_address}</p>
-              <br />
-              <p className="modalText">Work Requested: {this.state.event.extendedProps.work_requested}</p>
-              <br />
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary"><Link to={"/complete/"+this.state.event.extendedProps._id} style={{color: "white"}}>Complete</Link></Button>{" "}
-            <Button color="secondary" onClick={this.toggle}>
-              Cancel
-            </Button>
-          </ModalFooter>
-        </Modal> */}
-
 {/* - - - - - - - - - - - D I A L O G */}
 <Dialog
         open={this.state.open}
