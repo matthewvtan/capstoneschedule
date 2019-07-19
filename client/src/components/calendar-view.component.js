@@ -25,61 +25,65 @@ import "@fullcalendar/timegrid/main.css";
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
-
-  constructor() {
-    super();
-    this.timeIncrementMs = 50;
-    this.showSpinnerIfReturnGreaterThanMs = 200;
-    this.state = {
-        isLoading: true,
-        msElapsed: 0,
-        open: false,
-        modal: false,
-        calendarWeekends: true,
-        event: {
-          title: "",
-          start: "",
-          extendedProps: {
-            job_address: "",
-            id: "",
-            work_requested: "",
-            email_address: "",
-            phone: ""
-          }
-        },
-        events: []
+// ––––––––––LOADING ANIMATION––––––––––– 
+//   constructor() {
+//     super();
+//     this.timeIncrementMs = 50;
+//     this.showSpinnerIfReturnGreaterThanMs = 200;
+//     this.state = {
+//         isLoading: true,
+//         msElapsed: 0,
+//         open: false,
+//         modal: false,
+//         calendarWeekends: true,
+//         event: {
+//           title: "",
+//           start: "",
+//           extendedProps: {
+//             job_address: "",
+//             id: "",
+//             work_requested: "",
+//             email_address: "",
+//             phone: ""
+//           }
+//         };
+//     this.events: []
+//   };
+// }
+  state = {
+    open: false,
+    modal: false,
+    calendarWeekends: true,
+    event: {
+      title: "",
+      start: "",
+      extendedProps: {
+        job_address: "",
+        id: "",
+        work_requested: "",
+        email_address: "",
+        phone: ""
+      }
+    },
+    events: []
   };
-}
-  // state = {
-  //   open: false,
-  //   modal: false,
-  //   calendarWeekends: true,
-  //   event: {
-  //     title: "",
-  //     start: "",
-  //     extendedProps: {
-  //       job_address: "",
-  //       id: "",
-  //       work_requested: "",
-  //       email_address: "",
-  //       phone: ""
-  //     }
-  //   },
-  //   events: []
-  // };
-      
-componentWillUnmount() {
-  clearInterval(this.incrementer);
-}
+// ––––––––––LOADING ANIMATION––––––––––– 
+// componentWillUnmount() {
+//   clearInterval(this.incrementer);
+// }
 componentWillMount() {
-  this.incrementer = setInterval(() =>
-                this.setState({
-                    msElapsed: this.state.msElapsed + this.timeIncrementMs
-                })
-            , this.timeIncrementMs);
+  // ––––––––––LOADING ANIMATION––––––––––– 
+  // this.incrementer = setInterval(() =>
+  //               this.setState({
+  //                   msElapsed: this.state.msElapsed + this.timeIncrementMs
+  //               })
+  //           , this.timeIncrementMs);
     axios.get('/events')
       .then(response => {
-        this.setState({events: response.data, isLoading: false})
+        this.setState({
+          events: response.data,
+          // isLoading: false
+        })
         console.log({events: response.data})
       })
       .catch(function (error) {
