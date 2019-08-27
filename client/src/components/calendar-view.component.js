@@ -78,11 +78,7 @@ componentWillMount() {
   //                   msElapsed: this.state.msElapsed + this.timeIncrementMs
   //               })
   //           , this.timeIncrementMs);
-    axios.get('/events', {
-      params: {
-        employee: 'Sean'
-      }
-    })
+    axios.get('/events')
       .then(response => {
         this.setState({
           events: response.data,
