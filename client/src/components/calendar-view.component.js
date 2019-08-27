@@ -25,31 +25,7 @@ import "@fullcalendar/timegrid/main.css";
 
 export default class CalendarView extends React.Component {
   calendarComponentRef = React.createRef();
-// ––––––––––LOADING ANIMATION––––––––––– 
-//   constructor() {
-//     super();
-//     this.timeIncrementMs = 50;
-//     this.showSpinnerIfReturnGreaterThanMs = 200;
-//     this.state = {
-//         isLoading: true,
-//         msElapsed: 0,
-//         open: false,
-//         modal: false,
-//         calendarWeekends: true,
-//         event: {
-//           title: "",
-//           start: "",
-//           extendedProps: {
-//             job_address: "",
-//             id: "",
-//             work_requested: "",
-//             email_address: "",
-//             phone: ""
-//           }
-//         };
-//     this.events: []
-//   };
-// }
+
   state = {
     open: false,
     modal: false,
@@ -67,22 +43,13 @@ export default class CalendarView extends React.Component {
     },
     events: []
   };
-// ––––––––––LOADING ANIMATION––––––––––– 
-// componentWillUnmount() {
-//   clearInterval(this.incrementer);
-// }
+
 componentWillMount() {
-  // ––––––––––LOADING ANIMATION––––––––––– 
-  // this.incrementer = setInterval(() =>
-  //               this.setState({
-  //                   msElapsed: this.state.msElapsed + this.timeIncrementMs
-  //               })
-  //           , this.timeIncrementMs);
+
     axios.get('/events')
       .then(response => {
         this.setState({
           events: response.data,
-          // isLoading: false
         })
         console.log({events: response.data})
       })
@@ -92,7 +59,6 @@ componentWillMount() {
   }
 
   toggle = () => {
-    // this.setState({ modal: !this.state.modal });
     this.setState({ open: !this.state.open });
   };
 
@@ -102,14 +68,7 @@ componentWillMount() {
   };
 
   render() {
-  // ––––––––––LOADING ANIMATION––––––––––– 
-  //   if (this.state.isLoading &&
-  //     this.state.msElapsed > this.showSpinnerIfReturnGreaterThanMs) {
-  //     return <h1>LOADING</h1>;
-  // } else if (this.state.isLoading &&
-  //     this.state.msElapsed <= this.showSpinnerIfReturnGreaterThanMs) {
-  //     return (null);
-  // }
+
     return (
       <div className="cal-container" style={{marginTop: 30}}>
           <FullCalendar
