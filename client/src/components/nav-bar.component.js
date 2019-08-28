@@ -4,7 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 
-function SimpleMenu() {
+function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -25,15 +25,32 @@ function SimpleMenu() {
         <MenuIcon />
       </Button>
       <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/list">
+            List
+            </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/create">
+            Create Work Order
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/calendar">
+            Calendar
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/export">
+            Export
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );
 }
 
-export default SimpleMenu;
+export default NavBar;
 
 
 
