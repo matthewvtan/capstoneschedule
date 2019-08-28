@@ -20,19 +20,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NavBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  
-  function handleClick(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleClose() {
-    setAnchorEl(null);
-  }
-
-export default function ButtonAppBar() {
+export default function NavBar() {
   const classes = useStyles();
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    
+    function handleClick(event) {
+      setAnchorEl(event.currentTarget);
+    }
+  
+    function handleClose() {
+      setAnchorEl(null);
+    }
 
   return (
     <div className={classes.root}>
