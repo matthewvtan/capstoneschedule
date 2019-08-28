@@ -343,7 +343,6 @@ export default class CreateEvent extends Component {
                         || (!submitted && 'Submit')
                     }
                 </Button>
-                  {/* <input type="submit" value="Create Work Order" className="btn btn-primary" /> */}
                 </ValidatorForm>
               </Paper>
           </div>
