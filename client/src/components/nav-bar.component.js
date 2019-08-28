@@ -10,10 +10,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    color: 'white',
+    background: 'white',
+    color: 'black',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
 function NavBar() {
   const classes = useStyles();
