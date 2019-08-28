@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,53 +19,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavBar() {
+export default function ButtonAppBar() {
   const classes = useStyles();
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    
-    function handleClick(event) {
-      setAnchorEl(event.currentTarget);
-    }
-  
-    function handleClose() {
-      setAnchorEl(null);
-    }
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-            <Button
-        aria-owns={anchorEl ? 'simple-menu' : undefined}
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <MenuIcon />
-      </Button>
-      <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem onClick={handleClose}>
-          <Link to="/list">
-            List
-            </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/create">
-            Create Work Order
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/calendar">
-            Calendar
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/export">
-            Export
-          </Link>
-        </MenuItem>
-      </Menu>
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             News
