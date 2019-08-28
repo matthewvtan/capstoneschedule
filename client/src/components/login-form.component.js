@@ -5,9 +5,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+// import Link from '@material-ui/core/Link';
+// import Grid from '@material-ui/core/Grid';
+// import Box from '@material-ui/core/Box';
 import logo from "../CapstoneLogo1x.png";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+export default function LoginForm() {
   const classes = useStyles();
 
   return (
@@ -46,7 +46,7 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-        <img src={logo} width="30" height="30" />
+        <img src={logo} width="56" height="56" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
@@ -82,7 +82,7 @@ export default function SignIn() {
             type="submit"
             fullWidth
             variant="contained"
-            style={{backgroundColor: '#0A579D'}}
+            style={{backgroundColor: '#0A579D', color: 'white'}}
           >
             Sign In
           </Button>
