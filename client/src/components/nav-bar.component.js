@@ -50,6 +50,7 @@ function NavBar() {
             onClick={handleClick}
             >
             <MenuIcon />
+          </IconButton>
             <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
               <MenuItem onClick={handleClose}>
                 <Link to="/list">
@@ -72,7 +73,6 @@ function NavBar() {
                 </Link>
               </MenuItem>
             </Menu>
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             Capstone Schedule
           </Typography>
