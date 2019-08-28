@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import SignIn from "./componenets/login-form.component";
+import SignIn from "./components/login-form.component";
 import Home from "./components/home.component";
 import CreateEvent from "./components/create-event.component";
 import EditEvent from "./components/edit-event.component";
