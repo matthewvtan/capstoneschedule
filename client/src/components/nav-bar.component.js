@@ -39,7 +39,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <IconButton 
             edge="start" 
