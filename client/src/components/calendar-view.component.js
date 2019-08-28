@@ -47,19 +47,14 @@ export default class CalendarView extends React.Component {
 componentWillMount() {
 
     axios.get('/events')
-      .then(response =>
-        // this.setState({
-        //   events: response.data.results.map(result => (
-        //     {
-
-        //     }
-        //   )),
-        // })
-        console.log(response)
-      )
+    .then(newData => this.setState({events: newData, store: newData}))
       .catch(function (error) {
         console.log(error);
       })
+  }
+
+  filterNames(e){
+    this.setState({events: this.state.store.filter(item => item.employee.toLowerCase().includes('sean'))})
   }
 
   toggle = () => {
