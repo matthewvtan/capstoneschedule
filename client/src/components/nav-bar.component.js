@@ -20,9 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-NavBar() {
+function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  
   function handleClick(event) {
     setAnchorEl(event.currentTarget);
   }
