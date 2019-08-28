@@ -39,7 +39,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar style={{backgroundColor: 'white'}}>
         <Toolbar>
           <IconButton 
             edge="start" 
@@ -54,28 +54,28 @@ function NavBar() {
           </IconButton>
             <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
               <MenuItem onClick={handleClose}>
-                <Link to="/list">
+                <Link to="/list" class="link">
                   List
                   </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to="/create">
+                <Link to="/create" class="link">
                   Create Work Order
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to="/calendar">
+                <Link to="/calendar" class="link">
                   Calendar
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to="/export">
+                <Link to="/export" class="link">
                   Export
                 </Link>
               </MenuItem>
             </Menu>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">Capstone Schedule</Link>
+            <Link to="/" class="link">Capstone Schedule</Link>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
