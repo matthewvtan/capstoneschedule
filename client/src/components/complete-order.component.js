@@ -203,7 +203,7 @@ export default class CompleteOrder extends Component {
     render() {
       const { formData, submitted } = this.state;
         return (
-            <div className="form-container" style={{margin: 30}}>
+            <div className="form-container" style={{marginTop: 60}}>
                 <Paper style={{padding: 30}}>
                 <h3>Complete Order</h3>
                 <Divider />

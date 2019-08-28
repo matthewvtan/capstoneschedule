@@ -7,7 +7,7 @@ export default class Home extends Component {
     
     render() {
         return (
-            <div className="button-container">
+            <div className="button-container" style={{marginTop: 60}}>
                 <div>
                     <Button variant="contained" color="primary">
                         <Link to="/list" className="nav-link">List</Link>
