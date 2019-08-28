@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ButtonAppBar() {
+function NavBar() {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,7 +47,7 @@ export default function ButtonAppBar() {
             aria-label="Menu"
             aria-owns={anchorEl ? 'simple-menu' : undefined}
             aria-haspopup="true"
-             onClick={handleClick}
+            onClick={handleClick}
             >
             <MenuIcon />
             <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
@@ -74,7 +74,7 @@ export default function ButtonAppBar() {
             </Menu>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Capstone Schedule
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
@@ -82,6 +82,8 @@ export default function ButtonAppBar() {
     </div>
   );
 }
+
+export default NavBar;
 
 
 
