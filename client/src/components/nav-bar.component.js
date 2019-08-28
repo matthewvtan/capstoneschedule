@@ -13,7 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    background: 'white',
+    backgroundColor: 'white',
     color: 'black',
   },
   menuButton: {
