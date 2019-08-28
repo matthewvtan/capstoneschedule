@@ -3,10 +3,19 @@ body {
 }
 
 .link {
-  color: #ffffff;
+  color: rgba(0,0,0,0.87);
 }
 
 .link:hover {
+  color: rgb(0,0,0);
+  text-decoration: none;
+}
+
+.headerLink {
+  color: #ffffff;
+}
+
+.headerLink:hover {
   color: #ffffff;
   text-decoration: none;
 }

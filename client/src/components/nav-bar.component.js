@@ -75,7 +75,7 @@ function NavBar() {
               </MenuItem>
             </Menu>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" class="link">Capstone Schedule</Link>
+            <Link to="/" class="headerLink">Capstone Schedule</Link>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
