@@ -17,11 +17,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <SignIn />
           <div className="container" style={{ margin: 0, padding: 0}}>
           <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0"/>
           <NavBar />
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact component={SignIn} />
             <Route path="/list" component={EventsList} />
             <Route path="/edit/:id" component={EditEvent} />
             <Route path="/complete/:id" component={CompleteOrder} />
