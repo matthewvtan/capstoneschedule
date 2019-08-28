@@ -39,7 +39,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar style={{backgroundColor: 'white'}}>
+      <AppBar style={{backgroundColor: '#0A579D'}}>
         <Toolbar>
           <IconButton 
             edge="start" 
