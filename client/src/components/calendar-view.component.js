@@ -47,7 +47,7 @@ export default class CalendarView extends React.Component {
 componentWillMount() {
 
     axios.get('/events')
-    .then(newData => this.setState({events: newData, store: newData}))
+    .then(response => this.setState({events: response.data, store: response.data}))
       .catch(function (error) {
         console.log(error);
       })
