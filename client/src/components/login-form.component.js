@@ -46,7 +46,7 @@ export default function LoginForm() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-        <img src={logo} width="56" height="56" />
+        <img src={logo} width="30" height="30" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
