@@ -224,7 +224,7 @@ export default class EditEvent extends Component {
 
   render() {
     return (
-      <div className="form-container" style={{marginTop: 60}}>
+      <div className="form-container" style={{marginTop: 100}}>
           <Paper style={{padding: 30}}>
           <h3>Edit Work Order</h3>
                 <Divider />

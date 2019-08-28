@@ -61,7 +61,7 @@ export default class ExportView extends Component {
     
     render() {
         return (
-            <div style={{marginTop: 60}}>
+            <div style={{marginTop: 100}}>
               <ReactHTMLTableToExcel
                     id="test-table-xls-button"
                     className="download-table-xls-button"

@@ -70,7 +70,7 @@ componentWillMount() {
   render() {
 
     return (
-      <div className="cal-container" style={{marginTop: 60}}>
+      <div className="cal-container" style={{marginTop: 100}}>
           <FullCalendar
             defaultView="timeGridDay"
             header={{

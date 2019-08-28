@@ -99,7 +99,7 @@ export default class EventsList extends Component {
 
     render() {
         return (
-          <div style={{marginTop: 60}}>
+          <div style={{marginTop: 100}}>
             <h3 style={{marginTop: 20}}>Work Orders</h3>
             <Paper>
                 <Table 

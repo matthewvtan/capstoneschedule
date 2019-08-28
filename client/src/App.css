@@ -3,7 +3,12 @@ body {
 }
 
 .link {
-  color: #000000;
+  color: #ffffff;
+}
+
+.link:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .App {
