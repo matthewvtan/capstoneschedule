@@ -86,7 +86,7 @@ export default class CalendarView extends React.Component {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
             ref={this.calendarComponentRef}
             weekends="true"
-            events={this.state.events}
+            events={filterNames(this.state.events)}
             eventClick={this.handleEventClick}
             nowIndicator="true"
             height="parent"
