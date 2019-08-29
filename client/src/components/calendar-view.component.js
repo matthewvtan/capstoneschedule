@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from '@fullcalendar/list';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button } from "reactstrap";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -44,17 +44,23 @@ export default class CalendarView extends React.Component {
     }
   }
 
-componentWillMount() {
+  componentWillMount() {
 
     axios.get('/events')
-    .then(response => this.setState({events: response.data, store: response.data}))
+      .then(response => {
+        this.setState({
+          events: response.data,
+          store: response.data
+        })
+        console.log({events: response.data, store: response.data})
+      })
       .catch(function (error) {
         console.log(error);
       })
   }
 
   filterNames(e){
-    this.setState({events: this.state.store.filter(item => item.employee.toLowerCase().includes('sean'))})
+    this.setState({events: this.state.store.filter(event => event.employee.toLowerCase().includes('sean'))})
   }
 
   toggle = () => {
