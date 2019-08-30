@@ -55,6 +55,7 @@ eventRoutes.route('/update/:id').post(function(req, res) {
       event.phone = req.body.phone;
       event.address = req.body.address;
       event.job_address = req.body.job_address;
+      event.employee = req.body.employee;
       event.start = req.body.start;
       event.end = req.body.end;
       event.work_requested = req.body.work_requested;

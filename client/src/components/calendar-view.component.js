@@ -4,7 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import listPlugin from '@fullcalendar/list';
+// import listPlugin from '@fullcalendar/list';
 import { Button } from "reactstrap";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -83,7 +83,7 @@ export default class CalendarView extends React.Component {
               center: "title",
               right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
             }}
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             ref={this.calendarComponentRef}
             weekends="true"
             events={this.state.events}
