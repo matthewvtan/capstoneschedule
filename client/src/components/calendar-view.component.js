@@ -39,13 +39,12 @@ export default class CalendarView extends React.Component {
           phone: ""
         }
       },
-      events: [],
-      store: []
+      events: []
     }
   }
 
   componentWillMount() {
-
+    
     axios.get('/events')
       .then(response => {
         this.setState({

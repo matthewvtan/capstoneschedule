@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import LoginForm from "./components/login-form.component";
-// import Home from "./components/home.component";
+// import LoginForm from "./components/login-form.component";
+import Home from "./components/home.component";
 import CreateEvent from "./components/create-event.component";
 import EditEvent from "./components/edit-event.component";
 import EventsList from "./components/events-list.component";
@@ -20,7 +20,7 @@ class App extends Component {
           <div className="container" style={{ margin: 0, padding: 0}}>
           <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0"/>
           <NavBar />
-            <Route path="/" exact component={LoginForm} />
+            <Route path="/" exact component={Home} />
             <Route path="/list" component={EventsList} />
             <Route path="/edit/:id" component={EditEvent} />
             <Route path="/complete/:id" component={CompleteOrder} />
